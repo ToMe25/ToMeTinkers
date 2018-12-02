@@ -1,0 +1,10 @@
+[
+  {
+    "type": "modifier",
+    "data": "modifiers/extramods.json"
+  },
+  {
+    "type": "modifier",
+    "data": "modifiers/avaritiafree.json"
+  }
+]

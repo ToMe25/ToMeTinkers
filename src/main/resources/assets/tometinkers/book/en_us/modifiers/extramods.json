@@ -1,0 +1,21 @@
+{
+  "modifier": "avaritiafree",
+  "text": [
+    {
+      "text": "More Modifiers!"
+    }
+  ],
+  "effects": [
+    "Adds 5 additional modifier",
+    "Single use",
+    "Does NOT require a modifier"
+  ],
+  "demoTool": [
+    "tconstruct:broadsword",
+    "tconstruct:cleaver",
+    "tconstruct:pickaxe",
+    "tconstruct:hammer",
+    "tconstruct:shortbow",
+    "tconstruct:arrow"
+  ]
+}

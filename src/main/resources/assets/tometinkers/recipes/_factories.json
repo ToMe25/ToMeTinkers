@@ -1,0 +1,5 @@
+{
+    "conditions": {
+        "config_condition": "com.ToMe.ToMeTinkers.ConfigCondition"
+    }
+} 

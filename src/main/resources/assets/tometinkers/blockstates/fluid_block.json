@@ -1,0 +1,27 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "model": "forge:fluid"
+    },
+    "variants": {
+        "topaz": [{
+            "custom": { "fluid": "topaz" }
+        }],
+        "ruby": [{
+            "custom": { "fluid": "ruby" }
+        }],
+        "diamond": [{
+            "custom": { "fluid": "diamond" }
+        }],
+        "sapphire": [{
+            "custom": { "fluid": "sapphire" }
+        }],
+        "neutronium": [{
+            "custom": { "fluid": "neutronium" }
+        }]
+        ,
+        "infinity": [{
+            "custom": { "fluid": "infinity" }
+        }]
+    }
+}
