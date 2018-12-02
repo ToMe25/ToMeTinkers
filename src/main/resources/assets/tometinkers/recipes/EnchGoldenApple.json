@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "conditions": [
+    {
+      "type": "tometinkers:config_condition",
+      "option": "gapple"
+    }
+  ],
+  "pattern": [
+    "GGG",
+    "GAG",
+    "GGG"
+  ],
+  "key": {
+    "G": {
+      "type": "forge:ore_dict",
+      "ore": "blockGold",
+      "data": 0
+    },
+    "A": {
+      "item": "minecraft:apple",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "minecraft:golden_apple",
+    "data": 1,
+    "count": 1
+  }
+}

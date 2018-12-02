@@ -1,0 +1,16 @@
+[
+{
+  "modid": "tometinkers",
+  "name": "ToMeTinkers",
+  "description": "ToMe25's Tinkers Construct Addon.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["ToMe25"],
+  "credits": "...",
+  "logoFile": "ToMeTinkersLogo1.0.png",
+  "screenshots": [],
+  "dependencies": []
+}
+]

@@ -1,0 +1,21 @@
+{
+  "modifier": "extramodifier",
+  "text": [
+    {
+      "text": "Mehr Modifikatoren!"
+    }
+  ],
+  "effects": [
+    "Fügt einen Modifier hinzu",
+    "Single use",
+    "Benötigt KEINEN modifikator"
+  ],
+  "demoTool": [
+    "tconstruct:broadsword",
+    "tconstruct:cleaver",
+    "tconstruct:pickaxe",
+    "tconstruct:hammer",
+    "tconstruct:shortbow",
+    "tconstruct:arrow"
+  ]
+}
