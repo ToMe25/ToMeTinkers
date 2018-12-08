@@ -7,6 +7,7 @@ Material(Version Added)
 
 Avaritia:
 
+    Crystal Matrix(1.1)
     Neutronium(1.0)
     Infinity(1.0)
 
@@ -21,6 +22,12 @@ Avaritia:
     Changes to Magical Wood(1.0)
     Changes to Demon Ingot(1.0)
     Changes to Evil Infused Iron(1.0)
+
+Matter Overdrive:
+
+    Dilithium(1.1)
+    Tritanium(1.1)
+
 
  Minecraft Vanilla:
 
