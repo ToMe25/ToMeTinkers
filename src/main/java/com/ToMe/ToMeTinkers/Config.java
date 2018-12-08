@@ -17,7 +17,9 @@ public class Config extends Configuration {
 	public static boolean cosmicBedrockMiner = true;
 	public static boolean supermassiveResistant = true;
 	public static boolean neutroniumNuggetOreDict = true;
+	public static boolean gemDilithiumOreDict = true;
 	public static boolean enchGoldenAppleRecipe = true;
+	public static boolean avaritiaArrowShafts = false;
 	
 	public Config(File cfg) {
 		super(cfg);
@@ -40,7 +42,9 @@ public class Config extends Configuration {
 		cosmicBedrockMiner = getBoolean("cosmicBedrockMiner", CATEGORY_GENERAL, cosmicBedrockMiner, "Should tools with the Cosmic Trait be able to mine Bedrock?");
 		supermassiveResistant = getBoolean("supermassiveResistant", CATEGORY_GENERAL, supermassiveResistant, "Should supermassive(Neutronium Trait) work as Resistant 3?");
 		neutroniumNuggetOreDict = getBoolean("neutroniumNuggetOreDict", CATEGORY_GENERAL, neutroniumNuggetOreDict, "Registers Avaritias Neutronium Nugget as OreDictionary \"nuggetCosmicNeutronium\".");
+		gemDilithiumOreDict = getBoolean("gemDilithiumOreDict", CATEGORY_GENERAL, gemDilithiumOreDict, "Registers Advanced Rocketrys Dilithium Crystal as OreDictionary \"gemDilithium\".");
 		enchGoldenAppleRecipe = getBoolean("enchantedGoldenAppleRecipe", CATEGORY_GENERAL, enchGoldenAppleRecipe, "Should ToMeTinkers re-add the old Enchanted Golden Apple Recipe?");
+		avaritiaArrowShafts = getBoolean("avaritiaArrowShafts", CATEGORY_GENERAL, avaritiaArrowShafts, "Should Players be able to make Arrowshafts out of Avaritia Materials?");
 	}
 	
 	//public static void addMaterial(String name) {

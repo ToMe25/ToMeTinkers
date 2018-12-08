@@ -16,6 +16,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.oredict.OreDictionary;
@@ -98,7 +99,7 @@ public enum MaterialStats {
 		@Override
 		protected void addItems() {
 			mat.addCommonItems("Gold");
-			mat.addItem("oreGold", 1, Material.VALUE_Ore());
+			//mat.addItem("oreGold", 1, Material.VALUE_Ore());
 			super.addItems();
 		}
 		
@@ -114,9 +115,11 @@ public enum MaterialStats {
 		@Override
 		protected void addItems() {
 			mat.addCommonItems("Topaz");
-			mat.addItem("oreTopaz", 1, Material.VALUE_Ore());
-			mat.addItem("gemTopaz", 1, Material.VALUE_Gem);
+			//mat.addItem("oreTopaz", 1, Material.VALUE_Ore());
+			//mat.addItem("gemTopaz", 1, Material.VALUE_Gem);
+			mat.addItem("gemTopaz", 1, Material.VALUE_Ingot);
 			matInt.setRepresentativeItem("gemTopaz");
+			//super.addItems();
 			if(Config.meltGems) {
 				if(TConstruct.pulseManager.isPulseLoaded(TinkerSmeltery.PulseId)) {
 					TinkerRegistry.registerTableCasting(new PreferenceCastingRecipe("gemTopaz", RecipeMatch.ofNBT(TinkerSmeltery.castGem), fluid, Material.VALUE_Ingot));//Just because this will be also used as default for all Gems by Tinkers Construct.
@@ -148,9 +151,11 @@ public enum MaterialStats {
 		@Override
 		protected void addItems() {
 			mat.addCommonItems("Ruby");
-			mat.addItem("oreRuby", 1, Material.VALUE_Ore());
-			mat.addItem("gemRuby", 1, Material.VALUE_Gem);
+			//mat.addItem("oreRuby", 1, Material.VALUE_Ore());
+			//mat.addItem("gemRuby", 1, Material.VALUE_Gem);
+			mat.addItem("gemRuby", 1, Material.VALUE_Ingot);
 			matInt.setRepresentativeItem("gemRuby");
+			//super.addItems();
 			if(Config.meltGems) {
 				if(TConstruct.pulseManager.isPulseLoaded(TinkerSmeltery.PulseId)) {
 					TinkerRegistry.registerTableCasting(new PreferenceCastingRecipe("gemRuby", RecipeMatch.ofNBT(TinkerSmeltery.castGem), fluid, Material.VALUE_Ingot));//Just because this will be also used as default for all Gems by Tinkers Construct.
@@ -183,8 +188,9 @@ public enum MaterialStats {
 		@Override
 		protected void addItems() {
 			mat.addCommonItems("Diamond");
-			mat.addItem("oreDiamond", 1, Material.VALUE_Ore());
-			mat.addItem("gemDiamond", 1, Material.VALUE_Gem);
+			//mat.addItem("oreDiamond", 1, Material.VALUE_Ore());
+			//mat.addItem("gemDiamond", 1, Material.VALUE_Gem);
+			mat.addItem("gemDiamond", 1, Material.VALUE_Ingot);
 			super.addItems();
 			if(Config.meltGems) {
 				if(TConstruct.pulseManager.isPulseLoaded(TinkerSmeltery.PulseId)) {
@@ -218,9 +224,11 @@ public enum MaterialStats {
 		@Override
 		protected void addItems() {
 			mat.addCommonItems("Sapphire");
-			mat.addItem("oreSapphire", 1, Material.VALUE_Ore());
-			mat.addItem("gemSapphire", 1, Material.VALUE_Gem);
+			//mat.addItem("oreSapphire", 1, Material.VALUE_Ore());
+			//mat.addItem("gemSapphire", 1, Material.VALUE_Gem);
+			mat.addItem("gemSapphire", 1, Material.VALUE_Ingot);
 			matInt.setRepresentativeItem("gemSapphire");
+			//super.addItems();
 			if(Config.meltGems) {
 				if(TConstruct.pulseManager.isPulseLoaded(TinkerSmeltery.PulseId)) {
 					//TinkerRegistry.registerBasinCasting(new PreferenceCastingRecipe("blockSapphire", null, fluid, Material.VALUE_Block));
@@ -256,8 +264,9 @@ public enum MaterialStats {
 		@Override
 		protected void addItems() {
 			mat.addCommonItems("Emerald");
-			mat.addItem("oreEmerald", 1, Material.VALUE_Ore());
-			mat.addItem("gemEmerald", 1, Material.VALUE_Gem);
+			//mat.addItem("oreEmerald", 1, Material.VALUE_Ore());
+			//mat.addItem("gemEmerald", 1, Material.VALUE_Gem);
+			mat.addItem("gemEmerald", 1, Material.VALUE_Ingot);
 			super.addItems();
 		}
 		
@@ -334,13 +343,13 @@ public enum MaterialStats {
 		}
 		
 	},
-	AvaritiaInfinity("avaritia_infinitymetal", new HeadMaterialStats(8000, 6000.0f, /*50.0f*//*100.0f*//*150.0f*/175.0f, 5), new HandleMaterialStats(10.0f, 8000), new ExtraMaterialStats(8000), new BowMaterialStats(1.25f/*10.0f*/, 60.0f, 60.0f), null, /*new ArrowShaftMaterialStats(1.0f, 1000)*/null, null, true, /*0xffffff*/ 0xff0000, null /*new ItemStack(Item.REGISTRY.getObject(new ResourceLocation("avaritia:resource")*//*new ResourceLocation("avaritia", "resource")*//*), 6)*/, createFluid("infinity", 0xffffff, 1024), "infinity", "ingotInfinity") {
+	AvaritiaInfinity("avaritia_infinitymetal", new HeadMaterialStats(8000, 6000.0f, /*50.0f*//*100.0f*//*150.0f*/175.0f, 5), new HandleMaterialStats(10.0f, 8000), new ExtraMaterialStats(8000), new BowMaterialStats(1.25f/*10.0f*/, 60.0f, 60.0f), null, Config.avaritiaArrowShafts ? new ArrowShaftMaterialStats(1.0f, /*1000*//*800*/200/*0*/) : null, null, true, /*0xffffff*/ 0xff0000, null /*new ItemStack(Item.REGISTRY.getObject(new ResourceLocation("avaritia:resource")*//*new ResourceLocation("avaritia", "resource")*//*), 6)*/, createFluid("infinity", 0xffffff, 1024), "infinity", "ingotInfinity") {
 		
 		@Override
 		protected void addItems() {
 			mat.addCommonItems("Infinity");
-			//super.addItems();
 			matInt.setRepresentativeItem("ingotInfinity");
+			//super.addItems();
 		}
 		
 		@Override
@@ -371,12 +380,13 @@ public enum MaterialStats {
 		}
 		
 	},
-	AvaritiaNeutronium(/*new Material("avaritia_neutronium", TextFormatting.DARK_GRAY)*/"avaritia_neutronium", new HeadMaterialStats(1920, 900.0f, /*8.0f*/8.25f, 5), new HandleMaterialStats(1.0f, 1920), new ExtraMaterialStats(1920), new BowMaterialStats(/*109.0f*//*0.9f*//*0.35f*/0.325f/*0.3f*/, 10.0f, 10.0f), null, /*new ArrowShaftMaterialStats(1.1f, 1000)*/null, null, true, 0x303030, null, createFluid("neutronium", 0x303030, 1024), "neutronium", "ingotCosmicNeutronium") {
+	AvaritiaNeutronium(/*new Material("avaritia_neutronium", TextFormatting.DARK_GRAY)*/"avaritia_neutronium", new HeadMaterialStats(1920, 900.0f, /*8.0f*/8.25f, 5), new HandleMaterialStats(1.0f, 1920), new ExtraMaterialStats(1920), new BowMaterialStats(/*109.0f*//*0.9f*//*0.35f*/0.325f/*0.3f*/, 10.0f, 10.0f), null, Config.avaritiaArrowShafts ? new ArrowShaftMaterialStats(/*1.1f*/1.0f, /*1000*//*192*/50/*0*/) : null, null, true, 0x303030, null, createFluid("neutronium", 0x303030, 1024), "neutronium", "ingotCosmicNeutronium") {
 		
 		@Override
 		protected void addItems() {
 			mat.addCommonItems("CosmicNeutronium");
 			matInt.setRepresentativeItem("ingotCosmicNeutronium");
+			//super.addItems();
 		}
 		
 		@Override
@@ -397,6 +407,84 @@ public enum MaterialStats {
 				TinkerSmeltery.registerOredictMeltingCasting(fluid, "CosmicNeutronium");
 			}
 			super.register();
+		}
+		
+	},
+	AvaritiaCrystalmatrix("avaritia_crystalmatrix", new HeadMaterialStats(1000, 850.0f, 7.5f, 5), new HandleMaterialStats(0.9f, 1000), new ExtraMaterialStats(800), null, null, Config.avaritiaArrowShafts ? new ArrowShaftMaterialStats(1.0f, /*1000*//*155*/35/*0*/) : null, null, true, 0x00cccc, null , createFluid("crystalmatrix", 0x00cccc, 1024), "crystalmatrix", "ingotCrystalMatrix") {
+		
+		@Override
+		protected void addItems() {
+			mat.addCommonItems("CrystalMatrix");
+			matInt.setRepresentativeItem("ingotCrystalMatrix");
+			//super.addItems();
+		}
+		
+		@Override
+		protected void addTraits() {
+			mat.addTrait(Traits.crystallized);
+			super.addTraits();
+		}
+		
+		@Override
+		protected String modDependency() {
+			return "avaritia";
+		}
+		
+		@Override
+		protected void register() {
+			ToMeTinkers.proxy.setRenderInfo(mat, "avaritia:blocks/resource/crystal_matrix");
+			if(TConstruct.pulseManager.isPulseLoaded(TinkerSmeltery.PulseId)) {
+				TinkerSmeltery.registerOredictMeltingCasting(fluid, "Crystalmatrix");
+			}
+			super.register();
+		}
+		
+	},
+	Tritanium("tritanium", new HeadMaterialStats(2048, /*100.0f*/0.5f, 3.0f, 3), new HandleMaterialStats(1.0f, /*2048*/1024), new ExtraMaterialStats(/*2048*/1024), null, null, null, null, true, 0x3e5154, null, FluidRegistry.getFluid(/*"matteroverdrive:" + */"molten_tritanium")/*null*/, "Tritanium", "ingotTritanium") {
+		
+		@Override
+		protected void addItems() {
+			mat.addCommonItems("Tritanium");
+			super.addItems();
+		}
+		
+		@Override
+		protected void addTraits() {
+			mat.addTrait(Traits.reinforced3);
+			super.addTraits();
+		}
+		
+		@Override
+		protected String modDependency() {
+			return "matteroverdrive";
+		}
+		
+		//@Override
+		//protected void preInit() {
+			//fluid = FluidRegistry.getFluid("matteroverdrive:molten_tritanium");
+			//mat.setFluid(fluid);
+			//matInt.fluid = fluid;
+			//mat.setCastable(true);
+			//mat.setCraftable(false);
+			//super.preInit();
+		//}
+		
+	},
+	Dilithium("dilithium", new HeadMaterialStats(512, 0.75f, 3.5f, 2), new HandleMaterialStats(1.0f, 256), new ExtraMaterialStats(256), null, null, null, null, false, 0x008080, null, null, "Dilithium", "gemDilithium") {
+		
+		@Override
+		protected void addItems() {
+			mat.addCommonItems("Dilithium");
+			//mat.addItem("gemDilithium", 1, Material.VALUE_Gem);
+			mat.addItem("gemDilithium", 1, Material.VALUE_Ingot);
+			matInt.setRepresentativeItem("gemDilithium");
+			//super.addItems();
+		}
+		
+		@Override
+		protected void addTraits() {
+			mat.addTrait(Traits.reinforced2);
+			super.addTraits();
 		}
 		
 	};
@@ -421,6 +509,9 @@ public enum MaterialStats {
 		//fluids = new ArrayList<FluidMolten>();
 		if(fluids == null) {//Needed because createFluid() sometimes being invoked first.
 			fluids = new ArrayList<FluidMolten>();
+		}
+		for(String name:FluidRegistry.getRegisteredFluids().keySet()) {
+			ToMeTinkers.logger.info("MaterialStats: " + name);
 		}
 	}
 	
@@ -599,6 +690,13 @@ public enum MaterialStats {
 			ToMeTinkers.logger.info("Registered Material " + id);
 		}
 	}
+	
+	///**
+	// * Do things while preInit.
+	// */
+	//protected void preInit() {
+		
+	//}
 	
 	/**
 	 * Do things while postInit(after Recipe removal).

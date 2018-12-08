@@ -237,6 +237,7 @@ public class TraitCosmic extends AbstractTrait {
 		//ToMeTinkers.logger.info("TraitCosmic: " + "current tool has " + modifiers + " modifiers.");
 		//data.level = lvl;
 		data.level = lvl == 1 ? 0 : lvl;//prevent bugs with data.level == 1
+		//ToMeTinkers.logger.info("TraitCosmic: " + "saving data.level as " + (lvl == 1 ? 0 : lvl));
 		//if(data.level == 1) {
 			//data.level = getCosmicLevel(rootCompound);
 			//NBTTagList materials = TagUtil.getBaseMaterialsTagList(rootCompound);
@@ -445,8 +446,42 @@ public class TraitCosmic extends AbstractTrait {
 	public void onToolModify(ToolModifyEvent event) {
 		NBTTagCompound rootCompound = event.getItemStack().getTagCompound();
 		//if(TinkerUtil.hasTrait(event.getItemStack().getTagCompound(), identifier)) {
-		if(TinkerUtil.hasTrait(rootCompound, identifier)) {
+		//if(TinkerUtil.hasTrait(rootCompound, identifier)) {
+		if(TinkerUtil.getModifiers(event.getItemStack()).contains(this)) {
+		//if(event.getModifiers().contains(this)) {
 			//NBTTagCompound rootCompound = event.getItemStack().getTagCompound();
+			NBTTagCompound modifierTag = new NBTTagCompound();
+			NBTTagList tagList = TagUtil.getModifiersTagList(rootCompound);
+			int index = TinkerUtil.getIndexInList(tagList, identifier);
+			if(index >= 0) {
+				modifierTag = tagList.getCompoundTagAt(index);
+			}
+			applyEffect(rootCompound, modifierTag);
+		}
+		/*for(IModifier mod:TinkerUtil.getModifiers(event.getItemStack())) {
+			if(mod instanceof ModExtraTrait) {
+				ModExtraTrait embossment = (ModExtraTrait) mod;
+				try {
+					Field traits = ModExtraTrait.class.getDeclaredField("traits");
+					traits.setAccessible(true);
+					Collection<ITrait> trait = (Collection<ITrait>) traits.get(embossment);
+					if(trait.contains(this)) {
+						NBTTagCompound modifierTag = new NBTTagCompound();
+						NBTTagList tagList = TagUtil.getModifiersTagList(rootCompound);
+						int index = TinkerUtil.getIndexInList(tagList, identifier);
+						if(index >= 0) {
+							modifierTag = tagList.getCompoundTagAt(index);
+						}
+						applyEffect(rootCompound, modifierTag);
+						break;
+					}
+				} catch (Exception e) {
+					// TODO: handle exception
+					ToMeTinkers.logger.catching(e);
+				}
+			}
+		}*/
+		if(Util.hasEmbossment(rootCompound, this)) {
 			NBTTagCompound modifierTag = new NBTTagCompound();
 			NBTTagList tagList = TagUtil.getModifiersTagList(rootCompound);
 			int index = TinkerUtil.getIndexInList(tagList, identifier);
@@ -482,7 +517,7 @@ public class TraitCosmic extends AbstractTrait {
 		}
 		//helperStack.setTagCompound(rootTag);
 		//for(IModifier mod:TinkerUtil.getModifiers(helperStack)) {
-		for(IModifier mod:Util.getModifiers(rootTag)) {
+		/*for(IModifier mod:Util.getModifiers(rootTag)) {
 			if(mod instanceof ModExtraTrait) {
 				ModExtraTrait embossment = (ModExtraTrait) mod;
 				try {
@@ -518,6 +553,10 @@ public class TraitCosmic extends AbstractTrait {
 			}
 			//ToMeTinkers.logger.info("TraitCosmic: " + "has " + mod.getClass() + " Modifier!");
 			//ToMeTinkers.logger.info("TraitCosmic: " + "has " + mod.getIdentifier() + " Modifier!");
+		}*/
+		if(Util.hasEmbossment(rootTag, this)) {
+			lvl++;
+			//ToMeTinkers.logger.info("TraitCosmic: " + "has Cosmic Embossment!");
 		}
 		//ToMeTinkers.logger.info("TraitCosmic: " + "lvl = " + lvl);
 		return lvl;

@@ -3,6 +3,7 @@ package com.ToMe.ToMeTinkers.traits;
 import net.minecraft.nbt.NBTTagCompound;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
+//@Deprecated
 public class TraitUnbreakable extends AbstractTrait {
 
 	public TraitUnbreakable() {

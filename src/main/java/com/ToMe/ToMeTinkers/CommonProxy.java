@@ -40,6 +40,12 @@ public class CommonProxy {
 			}
 			//OreDictionary.registerOre("nuggetCosmicNeutronium", Item.REGISTRY.getObject(new ResourceLocation("avaritia", "resource")));
 		}
+		if(Config.gemDilithiumOreDict) {
+			Item dilithiumCrystal = Item.REGISTRY.getObject(new ResourceLocation("libvulpes", "productcrystal"));
+			if(dilithiumCrystal != null) {
+				OreDictionary.registerOre("gemDilithium", new ItemStack(dilithiumCrystal, 1, 0));
+			}
+		}
 		//BookHelper.writeSavedPage(new ItemStack(neutroniumNugget, 1, 3), "Test");
 		ToMeTinkers.proxy.registerBookPages();
 	}
@@ -58,6 +64,7 @@ public class CommonProxy {
 	
 	public void preInit(FMLPreInitializationEvent e) {
 		ToMeTinkers.cfg = new Config(e.getSuggestedConfigurationFile());
+		//Materials.preInit();
 		//ToMeTinkers.proxy.registerFluidModels();
 	}
 	
