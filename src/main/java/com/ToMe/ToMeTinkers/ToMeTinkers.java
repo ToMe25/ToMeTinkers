@@ -30,7 +30,8 @@ public class ToMeTinkers {
 	public static final String DEPENDENCIES = "required-after:mantle;" +
 											  "required-after:tconstruct;" +
 											  "after:extrautils;" +
-											  "after:avaritia";
+											  "after:avaritia;" +
+											  "after:matteroverdrive";
 	
 	@Instance
 	public static ToMeTinkers instance;

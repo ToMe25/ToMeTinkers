@@ -190,6 +190,12 @@ public class Materials {
 		}
 	}
 	
+	//public static void preInit() {
+		//for(MaterialStats stats:MaterialStats.values()) {
+			//stats.preInit();
+		//}
+	//}
+	
 	public static void postInit() {
 		for(MaterialStats stats:MaterialStats.values()) {
 			stats.postInit();

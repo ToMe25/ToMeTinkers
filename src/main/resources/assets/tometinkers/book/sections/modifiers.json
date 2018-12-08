@@ -1,6 +1,10 @@
 [
   {
     "type": "modifier",
+    "data": "modifiers/bound.json"
+  },
+  {
+    "type": "modifier",
     "data": "modifiers/extramods.json"
   },
   {

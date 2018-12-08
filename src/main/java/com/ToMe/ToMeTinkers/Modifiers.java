@@ -7,6 +7,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.IntStream;
 
+import com.ToMe.ToMeTinkers.modifiers.ModBound;
 import com.ToMe.ToMeTinkers.modifiers.ModExtraModifier;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
@@ -43,6 +44,7 @@ public class Modifiers {
 	//public static Modifier extramods = new ModExtraModifier("extramodifier", 1);
 	public static Modifier avaritiafree;
 	public static Modifier extramods;
+	public static Modifier bound;
 	
 	public static void registerModifiers() {
 		for(ModifierRegister mod:ModifierRegister.values()) {
@@ -103,6 +105,16 @@ public class Modifiers {
 				//for(ItemStack stack:oreDictItemCombination(new ItemStack(Items.GOLDEN_APPLE, 1, 1), "blockDiamond", 1).getInputs()) {
 					//ToMeTinkers.logger.info("Modifiers: " + stack.getUnlocalizedName());
 				//}
+				super.register();
+			}
+			
+		},
+		bound("bound") {
+			
+			@Override
+			protected void register() {
+				Modifiers.bound = new ModBound();
+				Modifiers.bound.addItem("string");
 				super.register();
 			}
 			
