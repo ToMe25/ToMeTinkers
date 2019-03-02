@@ -1,0 +1,19 @@
+{
+  "armormodifier": "avaritiafree",
+  "text": [
+    {
+      "text": "More Modifiers!"
+    }
+  ],
+  "effects": [
+    "Adds 5 additional modifier",
+    "Single use",
+    "Does NOT require a modifier"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}

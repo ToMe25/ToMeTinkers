@@ -30,7 +30,8 @@ public class TraitSupermassive extends AbstractTrait {
 	//private static ItemStack helperStack = new ItemStack(Item.REGISTRY.getObject(new ResourceLocation("tconstruct", "broadsword")));
 	
 	public TraitSupermassive() {
-		super("supermassive", 0xffffff);
+		//super("supermassive", 0xffffff);
+		super("tometinkers_supermassive", 0xffffff);
 	}
 	
 	/*@Override
@@ -62,7 +63,8 @@ public class TraitSupermassive extends AbstractTrait {
 	
 	@Override
 	public float knockBack(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, float knockback, float newKnockback, boolean isCritical) {
-		float puntboost = 1.5f * getSupermassiveLevel(tool.getTagCompound());
+		//float puntboost = 1.5f * getSupermassiveLevel(tool.getTagCompound());
+		float puntboost = 1.5f * getSupermassiveLevel(TagUtil.getTagSafe(tool));
 		//return super.knockBack(tool, player, target, damage, knockback, newKnockback * puntboost, isCritical);
 		//return newKnockback * puntboost;
 		//return newKnockback + (newKnockback * puntboost);
@@ -97,7 +99,7 @@ public class TraitSupermassive extends AbstractTrait {
 		}
 		//helperStack.setTagCompound(rootTag);
 		//for(IModifier mod:TinkerUtil.getModifiers(helperStack)) {
-		for(IModifier mod:Util.getModifiers(rootTag)) {
+		/*for(IModifier mod:Util.getModifiers(rootTag)) {
 			if(mod instanceof ModExtraTrait) {
 				ModExtraTrait embossment = (ModExtraTrait) mod;
 				try {
@@ -124,6 +126,9 @@ public class TraitSupermassive extends AbstractTrait {
 					ToMeTinkers.logger.catching(e);
 				}
 			}
+		}*/
+		if(Util.hasEmbossment(rootTag, this, false)) {
+			lvl++;
 		}
 		return lvl;
 	}

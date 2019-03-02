@@ -16,7 +16,8 @@ import slimeknights.tconstruct.tools.traits.TraitPrickly;
 public class TraitCrystallized extends AbstractTrait {
 
 	public TraitCrystallized() {
-		super("crystallized", 0xffffff);
+		//super("crystallized", 0xffffff);
+		super("tometinkers_crystallized", 0xffffff);
 	}
 	
 	@Override

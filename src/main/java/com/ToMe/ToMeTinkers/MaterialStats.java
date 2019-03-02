@@ -45,6 +45,8 @@ import slimeknights.tconstruct.shared.TinkerFluids;
 import slimeknights.tconstruct.smeltery.TinkerSmeltery;
 import slimeknights.tconstruct.tools.TinkerMaterials;
 import slimeknights.tconstruct.tools.TinkerTraits;
+import slimeknights.tconstruct.tools.ranged.BoltCoreCastingRecipe;
+import slimeknights.tconstruct.tools.ranged.item.BoltCore;
 
 public enum MaterialStats {
 	
@@ -108,6 +110,13 @@ public enum MaterialStats {
 			mat.addTrait(Traits.magical);
 			super.addTraits();
 		}
+		
+		//@Override
+		//protected void register() {
+			//removeTableCasting(new ItemStack(Item.REGISTRY.getObject(new ResourceLocation("tconstruct", "bolt_core"))), fluid);
+			//removeTableCastingFuzy(new ItemStack(Item.REGISTRY.getObject(new ResourceLocation("tconstruct", "bolt_core"))), fluid);
+			//super.register();
+		//}
 		
 	},
 	Topaz("topaz", new HeadMaterialStats(275, 6.5f, 6.5f, 2), new HandleMaterialStats(1.0f, 75), new ExtraMaterialStats(55), null, null, null, null, Config.meltGems, 0xffce43, null, /*null*/ Config.meltGems ? createFluid("topaz", 0xffce43, 999) : null, "Topaz", "gemTopaz") {
@@ -335,6 +344,14 @@ public enum MaterialStats {
 		}
 		
 	},
+	DemonicMetal(TinkerRegistry.getMaterial("xu_demonic_metal"), null, null, null, null, null, null, null, false, null, null, null, null) {//Needed for Armor Integration.
+		
+		@Override
+		protected String modDependency() {
+			return "extrautils2";
+		}
+		
+	},
 	EvilInfusedIron(TinkerRegistry.getMaterial("xu_evil_metal"), null, null, null, null, null, null, null, false, null, null, null, null) {//Adds dummy Bow Stats to Evil Infused Iron because every Vanilla Tinkers Construct Material has Bow Stats.
 		
 		@Override
@@ -410,7 +427,7 @@ public enum MaterialStats {
 		}
 		
 	},
-	AvaritiaCrystalmatrix("avaritia_crystalmatrix", new HeadMaterialStats(1000, 850.0f, 7.5f, 5), new HandleMaterialStats(0.9f, 1000), new ExtraMaterialStats(800), null, null, Config.avaritiaArrowShafts ? new ArrowShaftMaterialStats(1.0f, /*1000*//*155*/35/*0*/) : null, null, true, 0x00cccc, null , createFluid("crystalmatrix", 0x00cccc, 1024), "crystalmatrix", "ingotCrystalMatrix") {
+	AvaritiaCrystalmatrix("avaritia_crystalmatrix", new HeadMaterialStats(1000, 850.0f, 7.5f, 5), new HandleMaterialStats(0.9f, 1000), new ExtraMaterialStats(/*800*/1000), null, null, Config.avaritiaArrowShafts ? new ArrowShaftMaterialStats(1.0f, /*1000*//*155*/35/*0*/) : null, null, true, 0x00cccc, null , createFluid("crystalmatrix", 0x00cccc, 1024), "crystalmatrix", "ingotCrystalMatrix") {
 		
 		@Override
 		protected void addItems() {
@@ -434,7 +451,7 @@ public enum MaterialStats {
 		protected void register() {
 			ToMeTinkers.proxy.setRenderInfo(mat, "avaritia:blocks/resource/crystal_matrix");
 			if(TConstruct.pulseManager.isPulseLoaded(TinkerSmeltery.PulseId)) {
-				TinkerSmeltery.registerOredictMeltingCasting(fluid, "Crystalmatrix");
+				TinkerSmeltery.registerOredictMeltingCasting(fluid, "CrystalMatrix");
 			}
 			super.register();
 		}
@@ -502,17 +519,20 @@ public enum MaterialStats {
 	protected static Map<Fluid, List<Integer>> removeMelting = new HashMap<Fluid, List<Integer>>();
 	protected static Map<ItemStack, Fluid> removeBasinCasting = new HashMap<ItemStack, Fluid>();
 	protected static Map<ItemStack, Fluid> removeTableCasting = new HashMap<ItemStack, Fluid>();
+	//protected static Map<ItemStack, Fluid> removeTableCastingFuzy = new HashMap<ItemStack, Fluid>();
 	//protected static List<FluidMolten> fluids = new ArrayList<FluidMolten>();
 	protected static List<FluidMolten> fluids;
+	//private boolean armor = Loader.isModLoaded("conarm");
+	public boolean registered = false;
 	
 	static {
 		//fluids = new ArrayList<FluidMolten>();
 		if(fluids == null) {//Needed because createFluid() sometimes being invoked first.
 			fluids = new ArrayList<FluidMolten>();
 		}
-		for(String name:FluidRegistry.getRegisteredFluids().keySet()) {
-			ToMeTinkers.logger.info("MaterialStats: " + name);
-		}
+		//for(String name:FluidRegistry.getRegisteredFluids().keySet()) {
+			//ToMeTinkers.logger.info("MaterialStats: " + name);
+		//}
 	}
 	
 	private MaterialStats(String identifier, HeadMaterialStats headStats, HandleMaterialStats handleStats, ExtraMaterialStats extraStats, @Nullable BowMaterialStats bowStats, @Nullable BowStringMaterialStats bowStringStats, @Nullable ArrowShaftMaterialStats arrowStats, @Nullable FletchingMaterialStats fletchingStats, boolean casting, int color, @Nullable ItemStack representativeItem, @Nullable Fluid fluid, @Nullable String oreSuffix, @Nullable String oreDictRequirement) {
@@ -686,8 +706,10 @@ public enum MaterialStats {
 	protected void register() {
 		TinkerRegistry.integrate(matInt);
 		matInt.preInit();
+		registered = true;
 		if(Config.debug) {
-			ToMeTinkers.logger.info("Registered Material " + id);
+			//ToMeTinkers.logger.info("Registered Material " + id);
+			ToMeTinkers.logger.info("Registered Material " + id + ".");
 		}
 	}
 	
@@ -750,6 +772,18 @@ public enum MaterialStats {
 		}
 	}
 	
+	///**
+	// * Same as removeTableCasting but ignores the Item NBT.
+	// * @param output
+	// * @param input
+	// */
+	//protected void removeTableCastingFuzy(ItemStack output, Fluid input) {
+		//removeTableCastingFuzy.put(output, input);
+		//if(Config.debug) {
+			//ToMeTinkers.logger.info("Added " + output.getUnlocalizedName() + " from Fluid " + input.getUnlocalizedName() + " to the remove Map.");
+		//}
+	//}
+	
 	/**
 	 * removes all Recipes from the remove Maps.
 	 */
@@ -761,6 +795,13 @@ public enum MaterialStats {
 			f.setAccessible(true);
 			List<MeltingRecipe> list = (List<MeltingRecipe>)f.get(null);
 			for(MeltingRecipe r:list) {
+				//if(r.input instanceof RecipeMatch.Oredict) {
+					//for(ItemStack stack:((RecipeMatch.Oredict)r.input).getInputs()) {
+						//if(stack.getItem().getRegistryName().equals(new ResourceLocation("avaritia:resource"))) {
+							//System.out.println(stack.getDisplayName());
+						//}
+					//}
+				//}
 				//for(Fluid output:this.remove.keySet()) {
 				for(Fluid output:removeMelting.keySet()) {
 					//if(r.getResult().getFluid().equals(output) && r.getResult().amount == this.remove.get(output)) {
@@ -782,7 +823,9 @@ public enum MaterialStats {
 				//ToMeTinkers.logger.info("Removed recipe " + r);
 				list.remove(r);
 				if(Config.debug) {
-					ToMeTinkers.logger.info("Removed recipe " + r);
+					//ToMeTinkers.logger.info("Removed recipe " + r);
+					//ToMeTinkers.logger.info("Removed recipe " + r + "(Output: " + r.output + ")");
+					ToMeTinkers.logger.info("Removed recipe " + r + "(Output: " + r.output.getUnlocalizedName() + ")");
 				}
 			}
 			//ToMeTinkers.logger.info("Removed all Smeltery Melting Recipes saved in the remove Map.");
@@ -797,22 +840,27 @@ public enum MaterialStats {
 			}
 		}
 		try {
-			List<ICastingRecipe> remove = new ArrayList<ICastingRecipe>();
+			//List<ICastingRecipe> remove = new ArrayList<ICastingRecipe>();
+			Map<ICastingRecipe, Fluid> remove = new HashMap<ICastingRecipe, Fluid>();
 			Field f = TinkerRegistry.class.getDeclaredField("basinCastRegistry");
 			f.setAccessible(true);
 			List<ICastingRecipe> list = (List<ICastingRecipe>)f.get(null);
 			for(ICastingRecipe r:list) {
 				for(ItemStack output:removeBasinCasting.keySet()) {
 					if(ItemStack.areItemStacksEqual(r.getResult(ItemStack.EMPTY, removeBasinCasting.get(output)), output)) {
-						remove.add(r);
+						//remove.add(r);
+						remove.put(r, removeBasinCasting.get(output));
 					}
 				}
 			}
-			for(ICastingRecipe r:remove) {
+			//for(ICastingRecipe r:remove) {
+			for(ICastingRecipe r:remove.keySet()) {
 				//ToMeTinkers.logger.info("Removed recipe " + r);
 				list.remove(r);
 				if(Config.debug) {
-					ToMeTinkers.logger.info("Removed recipe " + r);
+					//ToMeTinkers.logger.info("Removed recipe " + r);
+					//ToMeTinkers.logger.info("Removed recipe " + r + "(Output: " + r.getResult(ItemStack.EMPTY, remove.get(r)) + ")");
+					ToMeTinkers.logger.info("Removed recipe " + r + "(Output: " + r.getResult(ItemStack.EMPTY, remove.get(r)).getDisplayName() + ")");
 				}
 			}
 			//ToMeTinkers.logger.info("Removed all Smeltery Casting Recipes saved in the remove Map.");
@@ -827,22 +875,27 @@ public enum MaterialStats {
 			}
 		}
 		try {
-			List<ICastingRecipe> remove = new ArrayList<ICastingRecipe>();
+			//List<ICastingRecipe> remove = new ArrayList<ICastingRecipe>();
+			Map<ICastingRecipe, Fluid> remove = new HashMap<ICastingRecipe, Fluid>();
 			Field f = TinkerRegistry.class.getDeclaredField("tableCastRegistry");
 			f.setAccessible(true);
 			List<ICastingRecipe> list = (List<ICastingRecipe>)f.get(null);
 			for(ICastingRecipe r:list) {
 				for(ItemStack output:removeTableCasting.keySet()) {
 					if(ItemStack.areItemStacksEqual(r.getResult(ItemStack.EMPTY, removeTableCasting.get(output)), output)) {
-						remove.add(r);
+						//remove.add(r);
+						remove.put(r, removeTableCasting.get(output));
 					}
 				}
 			}
-			for(ICastingRecipe r:remove) {
+			//for(ICastingRecipe r:remove) {
+			for(ICastingRecipe r:remove.keySet()) {
 				//ToMeTinkers.logger.info("Removed recipe " + r);
 				list.remove(r);
 				if(Config.debug) {
-					ToMeTinkers.logger.info("Removed recipe " + r);
+					//ToMeTinkers.logger.info("Removed recipe " + r);
+					//ToMeTinkers.logger.info("Removed recipe " + r + "(Output: " + r.getResult(ItemStack.EMPTY, remove.get(r)) + ")");
+					ToMeTinkers.logger.info("Removed recipe " + r + "(Output: " + r.getResult(ItemStack.EMPTY, remove.get(r)).getDisplayName() + ")");
 				}
 			}
 			//ToMeTinkers.logger.info("Removed all Smeltery Casting Recipes saved in the remove Map.");
@@ -856,10 +909,36 @@ public enum MaterialStats {
 				ToMeTinkers.logger.catching(e);
 			}
 		}
+		//try {
+			//Map<ICastingRecipe, Fluid> remove = new HashMap<ICastingRecipe, Fluid>();
+			//Field f = TinkerRegistry.class.getDeclaredField("tableCastRegistry");
+			//f.setAccessible(true);
+			//List<ICastingRecipe> list = (List<ICastingRecipe>)f.get(null);
+			//for(ICastingRecipe r:list) {
+				//for(ItemStack output:removeTableCastingFuzy.keySet()) {
+					//if(stacksEqualFuzy(r.getResult(ItemStack.EMPTY, removeTableCastingFuzy.get(output)), output)) {
+						//remove.put(r, removeTableCastingFuzy.get(output));
+					//}
+				//}
+			//}
+			//for(ICastingRecipe r:remove.keySet()) {
+				//list.remove(r);
+				//if(Config.debug) {
+					//ToMeTinkers.logger.info("Removed recipe " + r + "(Output: " + r.getResult(ItemStack.EMPTY, remove.get(r)).getDisplayName() + ")");
+				//}
+			//}
+			//if(Config.debug) {
+				//ToMeTinkers.logger.info("Removed all Smeltery Casting Recipes saved in the remove Map.");
+			//}
+		//} catch (Exception e) {
+			//if(Config.debug) {
+				//ToMeTinkers.logger.catching(e);
+			//}
+		//}
 		//ToMeTinkers.logger.info("Removed all Smeltery Recipes saved in the remove Maps.");
-		if(Config.debug) {
-			ToMeTinkers.logger.info("Removed all Smeltery Recipes saved in the remove Maps.");
-		}
+		//if(Config.debug) {
+			//ToMeTinkers.logger.info("Removed all Smeltery Recipes saved in the remove Maps.");
+		//}
 	}
 	
 	/*public static void onMeltingRegister(MeltingRegisterEvent e) {
@@ -890,6 +969,19 @@ public enum MaterialStats {
 		}
 		fluids.add(fluid);
 		return fluid;
+	}
+	
+	/**
+	 * just like ItemStack.areStacksEqual but ignores NBT data.
+	 * @param stack1
+	 * @param stack2
+	 * @return
+	 */
+	private static boolean stacksEqualFuzy(ItemStack stack1, ItemStack stack2) {
+		if(stack1.getItem().equals(stack2.getItem()) && stack1.getItemDamage() == stack2.getItemDamage() && stack1.getCount() == stack2.getCount()) {
+			return true;
+		}
+		return false;
 	}
 	
 }

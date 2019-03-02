@@ -31,7 +31,8 @@ public class ToMeTinkers {
 											  "required-after:tconstruct;" +
 											  "after:extrautils;" +
 											  "after:avaritia;" +
-											  "after:matteroverdrive";
+											  "after:matteroverdrive;" +
+											  "after:conarm";
 	
 	@Instance
 	public static ToMeTinkers instance;
@@ -85,7 +86,7 @@ public class ToMeTinkers {
 	
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent e) {
-		logger.info("Post Init!");
+		//logger.info("Post Init!");
 		//logger.info("" + Materials.glassIntegration.isIntegrated());
 		//MaterialStats.Glass.remove();
 		//MaterialStats.remove();

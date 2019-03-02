@@ -1,0 +1,18 @@
+{
+  "armormodifier": "bound",
+  "text": [
+    {
+      "text": "Meine Rüstung an mit ein bischen Faden an mir zu befestigen sollte mich davon abhalten es versehentlich weg zu werfen."
+    }
+  ],
+  "effects": [
+    "Rüstung kann nicht weg geworfen werden",
+    "Single use"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}

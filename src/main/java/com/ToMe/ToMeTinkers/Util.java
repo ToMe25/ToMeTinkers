@@ -92,7 +92,8 @@ public class Util {
 	}
 	
 	//public static boolean hasEmbossment(NBTTagCompound rootCompound, Trait trait) {
-	public static boolean hasEmbossment(NBTTagCompound rootCompound, ITrait trait) {
+	//public static boolean hasEmbossment(NBTTagCompound rootCompound, ITrait trait) {
+	public static boolean hasEmbossment(NBTTagCompound rootCompound, ITrait trait, boolean debug) {
 		for(IModifier mod:getModifiers(rootCompound)) {
 			if(mod instanceof ModExtraTrait) {
 				ModExtraTrait embossment = (ModExtraTrait) mod;
@@ -100,6 +101,16 @@ public class Util {
 					Field traits = ModExtraTrait.class.getDeclaredField("traits");
 					traits.setAccessible(true);
 					Collection<ITrait> traitList = (Collection<ITrait>) traits.get(embossment);
+					if(debug) {
+						String traitsStr = "";
+						for(ITrait tr:traitList) {
+							//traitsStr += tr + ", ";
+							traitsStr += tr.getIdentifier() + ", ";
+							//ToMeTinkers.logger.info("Util: " + "found Trait " + tr);
+						}
+						traitsStr = traitsStr.substring(0, traitsStr.length() - 2);
+						ToMeTinkers.logger.info("Util: " + "found Traits: " + traitsStr);
+					}
 					if(traitList.contains(trait)) {
 						//NBTTagCompound modifierTag = new NBTTagCompound();
 						//NBTTagList tagList = TagUtil.getModifiersTagList(rootCompound);
@@ -107,6 +118,9 @@ public class Util {
 						//if(index >= 0) {
 							//modifierTag = tagList.getCompoundTagAt(index);
 						//}
+						if(debug) {
+							ToMeTinkers.logger.info("Util: " + "found that Trait!");
+						}
 						return true;
 					}
 				} catch (Exception e) {
@@ -115,7 +129,29 @@ public class Util {
 				}
 			}
 		}
+		if(debug) {
+			//ToMeTinkers.logger.info("Util: " + "cant find that Trait!");
+			ToMeTinkers.logger.info("Util: " + "cant find Trait " + trait.getIdentifier());
+			//ToMeTinkers.logger.info("given NBT: " + rootCompound.toString());
+			ToMeTinkers.logger.info("modifiers NBT: " + TagUtil.getModifiersTagList(rootCompound).toString());
+		}
 		return false;
+	}
+	
+	/**
+	 * gets the Count of Items the Player currently has equipped with that Trait.
+	 * @param player the Player
+	 * @param trait the Trait to find
+	 * @return
+	 */
+	public static int getTraitItems(EntityPlayer player, AbstractTrait trait) {
+		int count = 0;
+		for(ItemStack stack:player.getEquipmentAndArmor()) {
+			if(TinkerUtil.hasTrait(TagUtil.getTagSafe(stack), trait.getIdentifier())) {
+				count++;
+			}
+		}
+		return count;
 	}
 	
 }

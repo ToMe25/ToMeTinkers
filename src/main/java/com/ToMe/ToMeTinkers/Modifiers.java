@@ -56,6 +56,10 @@ public class Modifiers {
 		}
 	}
 	
+	public static void registerBookPages() {
+		TinkerBook.INSTANCE.addRepository(new FileRepository(ToMeTinkers.MODID + ":book"));
+	}
+	
 	//private OreDictItemCombination oreDictItemCombination(ItemStack stack, String oreDict, int amountMatched) {
 	private static OreDictItemCombination oreDictItemCombination(ItemStack stack, String oreDict, int amountMatched) {
 		//return new OreDictItemCombination(stack, oreDict, amountMatched);

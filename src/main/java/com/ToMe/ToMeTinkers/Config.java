@@ -20,6 +20,9 @@ public class Config extends Configuration {
 	public static boolean gemDilithiumOreDict = true;
 	public static boolean enchGoldenAppleRecipe = true;
 	public static boolean avaritiaArrowShafts = false;
+	public static boolean cosmicFullArmorFlight = true;
+	public static boolean shaftCastRecipe = true;
+	public static boolean boundTweak = true;
 	
 	public Config(File cfg) {
 		super(cfg);
@@ -45,6 +48,9 @@ public class Config extends Configuration {
 		gemDilithiumOreDict = getBoolean("gemDilithiumOreDict", CATEGORY_GENERAL, gemDilithiumOreDict, "Registers Advanced Rocketrys Dilithium Crystal as OreDictionary \"gemDilithium\".");
 		enchGoldenAppleRecipe = getBoolean("enchantedGoldenAppleRecipe", CATEGORY_GENERAL, enchGoldenAppleRecipe, "Should ToMeTinkers re-add the old Enchanted Golden Apple Recipe?");
 		avaritiaArrowShafts = getBoolean("avaritiaArrowShafts", CATEGORY_GENERAL, avaritiaArrowShafts, "Should Players be able to make Arrowshafts out of Avaritia Materials?");
+		cosmicFullArmorFlight = getBoolean("cosmicFullArmorFlight", CATEGORY_GENERAL, cosmicFullArmorFlight, "Should Players with a full Armor with Infinity parts be able to fly?");
+		shaftCastRecipe = getBoolean("shaftCastRecipe", CATEGORY_GENERAL, shaftCastRecipe, "Should Players be able to craft Arrowshaft Casts?(they can't be casted because that creates gold bolt cores, and i cant change that.)");
+		boundTweak = getBoolean("boundTweak", CATEGORY_GENERAL, boundTweak, "Tweak the EntityPlayer class to make the bound modifier more reliable");
 	}
 	
 	//public static void addMaterial(String name) {

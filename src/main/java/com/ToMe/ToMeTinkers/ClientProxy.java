@@ -3,6 +3,7 @@ package com.ToMe.ToMeTinkers;
 import java.util.HashMap;
 import java.util.Map;
 
+//import c4.conarm.lib.book.ArmoryBook;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BlockRendererDispatcher;
@@ -14,6 +15,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -48,7 +50,16 @@ public class ClientProxy extends CommonProxy {
 	
 	@Override
 	public void registerBookPages() {
-		TinkerBook.INSTANCE.addRepository(new FileRepository(ToMeTinkers.MODID + ":book"));
+		Modifiers.registerBookPages();
+		if(Loader.isModLoaded("conarm")) {
+			ModifiersArmor.registerBookPages();
+		}
+		//TinkerBook.INSTANCE.addRepository(new FileRepository(ToMeTinkers.MODID + ":book"));
+		//try {
+			//ArmoryBook.INSTANCE.addRepository(new FileRepository(ToMeTinkers.MODID + ":book"));
+			//ArmoryBook.INSTANCE.addRepository(new FileRepository(ToMeTinkers.MODID + ":bookarmor"));
+		//} catch (Exception e) {
+		//}
 	}
 	
 	@Override
