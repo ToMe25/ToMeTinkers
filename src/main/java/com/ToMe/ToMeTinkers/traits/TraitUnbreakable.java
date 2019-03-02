@@ -7,7 +7,8 @@ import slimeknights.tconstruct.library.traits.AbstractTrait;
 public class TraitUnbreakable extends AbstractTrait {
 
 	public TraitUnbreakable() {
-		super("unbreakable", 0xffffff);
+		//super("unbreakable", 0xffffff);
+		super("tometinkers_unbreakable", 0xffffff);
 	}
 	
 	@Override

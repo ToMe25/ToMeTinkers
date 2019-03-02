@@ -12,7 +12,8 @@ import slimeknights.tconstruct.tools.traits.TraitWritable;
 public class TraitMagical extends AbstractTrait {
 
 	public TraitMagical() {
-		super("magical", 0xffffff);
+		//super("magical", 0xffffff);
+		super("tometinkers_magical", 0xffffff);
 	}
 	
 	@Override
@@ -33,9 +34,9 @@ public class TraitMagical extends AbstractTrait {
 			tagList.appendTag(tag);
 		}
 		if(!tag.getBoolean(identifier)) {
-			ModifierNBT data = ModifierNBT.readTag(tag);
+			//ModifierNBT data = ModifierNBT.readTag(tag);
 			//data.level += 1;
-			data.write(tag);
+			//data.write(tag);
 			tag.setBoolean(identifier, true);
 			tagList.set(index, tag);
 			TagUtil.setModifiersTagList(rootCompound, tagList);

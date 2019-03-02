@@ -65,9 +65,11 @@ public class TraitCosmic extends AbstractTrait {
 	
 	public TraitCosmic() {
 	//public TraitCosmic(int levels) {
-		super("cosmic", 0xffffff);
+		//super("cosmic", 0xffffff);
+		super("avaritia_cosmic", 0xffffff);
 		//super("cosmic", 0xffffff, 1, Integer.MAX_VALUE);
 		//super("cosmic", 0xffffff, Integer.MAX_VALUE, 1);
+		//super("avaritia_cosmic", 0xffffff, Integer.MAX_VALUE, 1);
 		//super("cosmic", String.valueOf(Integer.MAX_VALUE), 0xffffff, Integer.MAX_VALUE, 1);
 		//super("cosmic", String.valueOf(levels), 0xffffff, Integer.MAX_VALUE, 1);
 		MinecraftForge.EVENT_BUS.register(this);
@@ -125,15 +127,43 @@ public class TraitCosmic extends AbstractTrait {
 	}*/
 	
 	@Override
+	public void updateNBTforTrait(NBTTagCompound modifierTag, int newColor) {
+		super.updateNBTforTrait(modifierTag, newColor);
+		ModifierNBT data = ModifierNBT.readTag(modifierTag);
+		data.level = 0;
+		data.write(modifierTag);
+	}
+	
+	@Override
 	//public void applyModifierEffect(NBTTagCompound rootCompound) {
 	public void applyEffect(NBTTagCompound rootCompound, NBTTagCompound modifierTag) {
 	//public void applyBonusModifiers(NBTTagCompound rootCompound) {
 		//super.applyModifierEffect(rootCompound);
-		//super.applyEffect(rootCompound, modifierTag);
+		super.applyEffect(rootCompound, modifierTag);
 		//ToMeTinkers.logger.info(rootCompound.toString());
 		//ToMeTinkers.logger.info(modifierTag.toString());
+		ModifierNBT data = ModifierNBT.readTag(modifierTag);
 		NBTTagCompound toolTag = TagUtil.getToolTag(rootCompound);
+		int modifiers = toolTag.getInteger(Tags.FREE_MODIFIERS) + 5;
+		data.level++;
+		NBTTagList parts = TagUtil.getBaseMaterialsTagList(rootCompound);
+		if(data.level == 1 && parts.tagCount() < 3) {
+			if(Util.getHeadMaterial(rootCompound).getAllTraits().contains(this)) {
+				data.level++;
+				modifiers += 5;
+			}
+		}
+		data.write(modifierTag);
+		//NBTTagCompound toolTag = TagUtil.getToolTag(rootCompound);
+		//int modifiers = toolTag.getInteger(Tags.FREE_MODIFIERS) + 5;
+		toolTag.setInteger(Tags.FREE_MODIFIERS, Math.max(0, modifiers));
+		TagUtil.setToolTag(rootCompound, toolTag);
+		//ModifierNBT data = ModifierNBT.readTag(modifierTag);
+		//data.level++;
+		//data.write(modifierTag);
+		/*NBTTagCompound toolTag = TagUtil.getToolTag(rootCompound);
 		int modifiers = toolTag.getInteger(Tags.FREE_MODIFIERS);
+		//System.out.println("Tool has " + modifiers + " Modifiers");
 		//NBTTagList parts = toolTag.getTagList(Tags.PART_MATERIAL, 0);
 		//NBTTagList parts = TagUtil.getBaseMaterialsTagList(rootCompound);
 		//int i = 0;
@@ -212,6 +242,7 @@ public class TraitCosmic extends AbstractTrait {
 			tag = tagList.getCompoundTagAt(index);
 		}
 		else {
+			//this.updateNBTforTrait(tag, color);
 			index = tagList.tagCount();
 			tagList.appendTag(tag);
 		}
@@ -220,11 +251,13 @@ public class TraitCosmic extends AbstractTrait {
 		int lvl = getCosmicLevel(rootCompound);
 		//ToMeTinkers.logger.info("" + data.level);
 		//ToMeTinkers.logger.info("TraitCosmic: " + "data.level = " + data.level + ", lvl = " + lvl);
-		//int lvlChange = lvl - data.level;
+		int lvlChange = lvl - data.level;
 		//int lvlChange = lvl - (data.level < 2 ? data.level - 1 : data.level);
-		int lvlChange = lvl - (data.level == 1 ? data.level - 1 : (data.level == 0 ? data.level + 1 : data.level));//prevent bugs with data.level == 1
+		//int lvlChange = lvl - (data.level == 1 ? data.level - 1 : (data.level == 0 ? data.level + 1 : data.level));//prevent bugs with data.level == 1
+		//int lvlChange = lvl - (data.level == 0 ? data.level + 1 : data.level);//prevent bugs with data.level == 1
 		//int lvlChange = lvl - (data.level - 1);//data.level is default 1, lvl is default 0.
 		//ToMeTinkers.logger.info("TraitCosmic: " + "data.level = " + data.level + ", lvl = " + lvl + ", lvlChange = " + lvlChange);
+		//ToMeTinkers.logger.info("TraitCosmic: " + (lvlChange < 0 ? "removed " + ((lvlChange * 5) * -1) : "added " + (lvlChange * 5)) + "modifiers.");
 		modifiers += 5 * lvlChange;
 		//modifiers += 5 * lvl;
 		//modifiers += 5;
@@ -235,8 +268,8 @@ public class TraitCosmic extends AbstractTrait {
 			//modifiers += 5 * (lvlChange - 1);
 		//}
 		//ToMeTinkers.logger.info("TraitCosmic: " + "current tool has " + modifiers + " modifiers.");
-		//data.level = lvl;
-		data.level = lvl == 1 ? 0 : lvl;//prevent bugs with data.level == 1
+		data.level = lvl;
+		//data.level = lvl == 1 ? 0 : lvl;//prevent bugs with data.level == 1
 		//ToMeTinkers.logger.info("TraitCosmic: " + "saving data.level as " + (lvl == 1 ? 0 : lvl));
 		//if(data.level == 1) {
 			//data.level = getCosmicLevel(rootCompound);
@@ -263,9 +296,12 @@ public class TraitCosmic extends AbstractTrait {
 		//if(lvl > 1) {
 			//modifiers += 5 * (lvl - 1);
 		//}
+		//System.out.println("Changed Modifiers to " + modifiers);
 		toolTag.setInteger(Tags.FREE_MODIFIERS, Math.max(0, modifiers));
 		data.write(tag);
 		//data.write(modifierTag);
+		tagList.set(index, tag);
+		TagUtil.setModifiersTagList(rootCompound, tagList);
 		TagUtil.setToolTag(rootCompound, toolTag);
 		//NBTTagList tagList = TagUtil.getModifiersTagList(rootCompound);
 		//int index = TinkerUtil.getIndexInCompoundList(tagList, getModifierIdentifier());
@@ -284,7 +320,16 @@ public class TraitCosmic extends AbstractTrait {
 		//}
 		//data.write(tag);
 		//TagUtil.setToolTag(rootCompound, toolTag);
+		//super.applyEffect(rootCompound, modifierTag);*/
 	}
+	
+	/*@Override
+	public void applyModifierEffect(NBTTagCompound rootCompound) {
+		NBTTagCompound toolTag = TagUtil.getToolTag(rootCompound);
+		int modifiers = toolTag.getInteger(Tags.FREE_MODIFIERS) + (levels * 5);
+		toolTag.setInteger(Tags.FREE_MODIFIERS, Math.max(0, modifiers));
+		TagUtil.setToolTag(rootCompound, toolTag);
+	}*/
 	
 	@SubscribeEvent
     public void onHarvestDrops(HarvestDropsEvent event) {
@@ -304,7 +349,8 @@ public class TraitCosmic extends AbstractTrait {
 				//if(TinkerUtil.getMaterialFromStack(stack).getAllTraits().contains(this)) {
 				//if (toolTag.getInteger("Head") == Tonkers.infinityMetalId) {
 				//if(getHeadMaterial(stack.getTagCompound()).getAllTraits().contains(this)) {
-				if(Util.getHeadMaterial(stack.getTagCompound()).getAllTraits().contains(this)) {
+				//if(Util.getHeadMaterial(stack.getTagCompound()).getAllTraits().contains(this)) {
+				if(Util.getHeadMaterial(TagUtil.getTagSafe(stack)).getAllTraits().contains(this)) {
 					//ToMeTinkers.logger.info("TraitCosmic: " + stack.getDisplayName() + " has Cosmic.");
 					//int parts = 1;
 					//if (toolTag.getInteger("Handle") == Tonkers.infinityMetalId) {
@@ -316,9 +362,11 @@ public class TraitCosmic extends AbstractTrait {
 					//if (toolTag.getInteger("Extra") == Tonkers.infinityMetalId) {
 						//parts++;
 					//}
-					int lvl = getCosmicLevel(stack.getTagCompound());
+					//int lvl = getCosmicLevel(stack.getTagCompound());
+					int lvl = getCosmicLevel(TagUtil.getTagSafe(stack));
 					int luck = Math.min(3, lvl);
-					NBTTagList tagList = TagUtil.getBaseMaterialsTagList(stack.getTagCompound());
+					//NBTTagList tagList = TagUtil.getBaseMaterialsTagList(stack.getTagCompound());
+					NBTTagList tagList = TagUtil.getBaseMaterialsTagList(TagUtil.getTagSafe(stack));
 					//if (lvl == TinkerUtil.getMaterialsFromTagList(tagList).size()) {
 					if (lvl == tagList.tagCount()) {
 						luck++;
@@ -392,7 +440,8 @@ public class TraitCosmic extends AbstractTrait {
 			BlockPos pos = event.getPos();
 			//if (toolTag != null && toolTag.getInteger("Head") == Tonkers.infinityMetalId && tool.canHarvestBlock(Blocks.STONE.getDefaultState(), held)) {
 			//if(getHeadMaterial(held.getTagCompound()).getAllTraits().contains(this) && tool.canHarvestBlock(Blocks.STONE.getDefaultState(), held)) {
-			if(Util.getHeadMaterial(held.getTagCompound()).getAllTraits().contains(this) && tool.canHarvestBlock(Blocks.STONE.getDefaultState(), held)) {
+			//if(Util.getHeadMaterial(held.getTagCompound()).getAllTraits().contains(this) && tool.canHarvestBlock(Blocks.STONE.getDefaultState(), held)) {
+			if(Util.getHeadMaterial(TagUtil.getTagSafe(held)).getAllTraits().contains(this) && tool.canHarvestBlock(Blocks.STONE.getDefaultState(), held)) {
 				if(block.quantityDropped(rand) == 0) {
 					ItemStack drop = block.getPickBlock(state, raytraceFromEntity(event.getWorld(), event.getEntityPlayer(), true, 10), event.getWorld(), event.getPos(), event.getEntityPlayer());
 					if(drop == null)
@@ -442,9 +491,18 @@ public class TraitCosmic extends AbstractTrait {
 		//((TraitCosmic)Traits.cosmic).applyBonusModifiers(rootCompound);
 	}*/
 	
-	@SubscribeEvent
+	/*@SubscribeEvent
 	public void onToolModify(ToolModifyEvent event) {
-		NBTTagCompound rootCompound = event.getItemStack().getTagCompound();
+		//for(IModifier mod:event.getModifiers()) {
+			//if(mod instanceof ModExtraTrait || mod instanceof TraitCosmic) {
+				//ToMeTinkers.logger.info("TraitCosmic: " + "Changing Modifiers Count.");
+			//}
+			//else {
+				//return;
+			//}
+		//}
+		//NBTTagCompound rootCompound = event.getItemStack().getTagCompound();
+		NBTTagCompound rootCompound = TagUtil.getTagSafe(event.getItemStack());
 		//if(TinkerUtil.hasTrait(event.getItemStack().getTagCompound(), identifier)) {
 		//if(TinkerUtil.hasTrait(rootCompound, identifier)) {
 		if(TinkerUtil.getModifiers(event.getItemStack()).contains(this)) {
@@ -456,9 +514,14 @@ public class TraitCosmic extends AbstractTrait {
 			if(index >= 0) {
 				modifierTag = tagList.getCompoundTagAt(index);
 			}
+			//else {
+				//this.updateNBTforTrait(modifierTag, color);
+				//tagList.appendTag(modifierTag);
+				//TagUtil.setModifiersTagList(rootCompound, tagList);
+			//}
 			applyEffect(rootCompound, modifierTag);
 		}
-		/*for(IModifier mod:TinkerUtil.getModifiers(event.getItemStack())) {
+		*//*for(IModifier mod:TinkerUtil.getModifiers(event.getItemStack())) {
 			if(mod instanceof ModExtraTrait) {
 				ModExtraTrait embossment = (ModExtraTrait) mod;
 				try {
@@ -480,14 +543,20 @@ public class TraitCosmic extends AbstractTrait {
 					ToMeTinkers.logger.catching(e);
 				}
 			}
-		}*/
-		if(Util.hasEmbossment(rootCompound, this)) {
+		}*//*
+		//if(Util.hasEmbossment(rootCompound, this)) {
+		if(Util.hasEmbossment(rootCompound, this, false)) {
 			NBTTagCompound modifierTag = new NBTTagCompound();
 			NBTTagList tagList = TagUtil.getModifiersTagList(rootCompound);
 			int index = TinkerUtil.getIndexInList(tagList, identifier);
 			if(index >= 0) {
 				modifierTag = tagList.getCompoundTagAt(index);
 			}
+			//else {
+				//this.updateNBTforTrait(modifierTag, color);
+				//tagList.appendTag(modifierTag);
+				//TagUtil.setModifiersTagList(rootCompound, tagList);
+			//}
 			applyEffect(rootCompound, modifierTag);
 		}
 		//NBTTagCompound rootCompound = event.getItemStack().getTagCompound();
@@ -499,7 +568,7 @@ public class TraitCosmic extends AbstractTrait {
 		//}
 		//applyEffect(rootCompound, modifierTag);
 		//applyBonusModifiers(rootCompound);
-	}
+	}*/
 	
 	private int getCosmicLevel(NBTTagCompound rootTag) {
 		int lvl = 0;
@@ -554,10 +623,14 @@ public class TraitCosmic extends AbstractTrait {
 			//ToMeTinkers.logger.info("TraitCosmic: " + "has " + mod.getClass() + " Modifier!");
 			//ToMeTinkers.logger.info("TraitCosmic: " + "has " + mod.getIdentifier() + " Modifier!");
 		}*/
-		if(Util.hasEmbossment(rootTag, this)) {
+		//if(Util.hasEmbossment(rootTag, this)) {
+		if(Util.hasEmbossment(rootTag, this, false)) {
 			lvl++;
 			//ToMeTinkers.logger.info("TraitCosmic: " + "has Cosmic Embossment!");
 		}
+		//else {
+			//ToMeTinkers.logger.info("TraitCosmic: " + "has no Cosmic Embossment!");
+		//}
 		//ToMeTinkers.logger.info("TraitCosmic: " + "lvl = " + lvl);
 		return lvl;
 	}

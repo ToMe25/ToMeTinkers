@@ -27,6 +27,7 @@ public class TraitReinforced extends AbstractTraitLeveled {
 	
 	public TraitReinforced(int lvl) {
 		super("reinforced", 0xffffff, 10, lvl);
+		//super("tometinkers_reinforced", 0xffffff, 10, lvl);
 		//super(lvl);
 		//super("reinforced", 0xffffff);
 		//super("reinforced" + lvl, 0xffffff);
@@ -69,7 +70,8 @@ public class TraitReinforced extends AbstractTraitLeveled {
 	public String getTooltip(NBTTagCompound modifierTag, boolean detailed) {
 		ModifierNBT data = ModifierNBT.readTag(modifierTag);
 		if (lvl == 10) {
-			return Util.translate("modifier.%s.unbreakable", getIdentifier());
+			//return Util.translate("modifier.%s.unbreakable", getIdentifier());
+			return Util.translate("modifier.reinforced.unbreakable");
 		}
 		return super.getTooltip(modifierTag, detailed);
 	}
@@ -81,7 +83,8 @@ public class TraitReinforced extends AbstractTraitLeveled {
 			float chance = getReinforcedChance(modifierTag);
 			String chanceStr = Util.dfPercent.format(chance);
 			if (chance >= 1f) {
-				chanceStr = Util.translate("modifier.%s.unbreakable", getIdentifier());
+				//chanceStr = Util.translate("modifier.%s.unbreakable", getIdentifier());
+				chanceStr = Util.translate("modifier.reinforced.unbreakable");
 			}
 			return ImmutableList.of(Util.translateFormatted(loc, chanceStr));
 		}

@@ -16,10 +16,12 @@
         "sapphire": [{
             "custom": { "fluid": "sapphire" }
         }],
+        "crystalmatrix": [{
+            "custom": { "fluid": "crystalmatrix" }
+        }],
         "neutronium": [{
             "custom": { "fluid": "neutronium" }
-        }]
-        ,
+        }],
         "infinity": [{
             "custom": { "fluid": "infinity" }
         }]

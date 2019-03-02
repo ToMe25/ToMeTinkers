@@ -16,6 +16,9 @@ public class ConfigCondition implements IConditionFactory {
 		if(JsonUtils.getString(json, "option").equalsIgnoreCase("gapple")) {
 			return () -> Config.enchGoldenAppleRecipe;
 		}
+		else if(JsonUtils.getString(json, "option").equalsIgnoreCase("shaftcast")) {
+			return () -> Config.shaftCastRecipe;
+		}
 		else {
 			ToMeTinkers.logger.warn("ConfigCondition: " + "Couldn't find Condition " + JsonUtils.getString(json, "option") + ".");
 			return () -> false;

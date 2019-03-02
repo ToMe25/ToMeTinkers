@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "tometinkers:config_condition",
+      "option": "shaftcast"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "tconstruct:cast",
+      "data": 0
+    },
+    {
+      "item": "tconstruct:arrow_shaft",
+      "data": 0
+    }
+  ],
+  "result": {
+    "item": "tconstruct:cast",
+    "data": 0,
+    "count": 1,
+    "nbt": {
+        "PartType": "tconstruct:arrow_shaft"
+    }
+  }
+}

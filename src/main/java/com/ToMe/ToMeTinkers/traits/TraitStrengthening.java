@@ -12,10 +12,11 @@ import slimeknights.tconstruct.library.utils.TinkerUtil;
 public class TraitStrengthening extends AbstractTrait {
 	
 	private static final float BONUS_DAMAGE = 1.0f;
-	private static final float MINING_SPEED_BONUS = 1.5f;
+	private static final float BONUS_SPEED/*MINING_SPEED_BONUS*/ = 1.5f;
 	
 	public TraitStrengthening() {
-		super("strengthening", 0xffffff);
+		//super("strengthening", 0xffffff);
+		super("tometinkers_strengthening", 0xffffff);
 	}
 	
 	@Override
@@ -23,7 +24,8 @@ public class TraitStrengthening extends AbstractTrait {
 		if(!TinkerUtil.hasTrait(rootCompound, identifier)) {
 			ToolNBT data = TagUtil.getToolStats(rootCompound);
 			data.attack += BONUS_DAMAGE;
-			data.speed += MINING_SPEED_BONUS;
+			//data.speed += MINING_SPEED_BONUS;
+			data.speed += BONUS_SPEED;
 			TagUtil.setToolTag(rootCompound, data.get());
 		}
 		super.applyEffect(rootCompound, modifierTag);

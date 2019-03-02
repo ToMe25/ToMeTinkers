@@ -12,7 +12,8 @@ public class TraitOptimized extends AbstractTrait {
 	private static final int maxSpeedBonus = 3;
 	
 	public TraitOptimized() {
-		super("optimized", 0xffffff);
+		//super("optimized", 0xffffff);
+		super("tometinkers_optimized", 0xffffff);
 	}
 	
 	@Override

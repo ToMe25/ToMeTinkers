@@ -4,7 +4,11 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.datafix.FixTypes;
+import net.minecraftforge.common.util.ModFixs;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -32,6 +36,10 @@ public class CommonProxy {
 	public void registerItems(RegistryEvent.Register<Item> e) {
 		Materials.registerMaterials();
 		Modifiers.registerModifiers();
+		//ModifiersArmor.registerModifiers();
+		if(Loader.isModLoaded("conarm")) {
+			ModifiersArmor.registerModifiers();
+		}
 		ToMeTinkers.proxy.registerFluidModels();
 		if(Config.neutroniumNuggetOreDict) {
 			Item neutroniumNugget = Item.REGISTRY.getObject(new ResourceLocation("avaritia", "resource"));
@@ -63,18 +71,29 @@ public class CommonProxy {
 	}
 	
 	public void preInit(FMLPreInitializationEvent e) {
-		ToMeTinkers.cfg = new Config(e.getSuggestedConfigurationFile());
+		if(ToMeTinkers.cfg == null) {
+			ToMeTinkers.cfg = new Config(e.getSuggestedConfigurationFile());
+		}
+		//ToMeTinkers.cfg = new Config(e.getSuggestedConfigurationFile());
 		//Materials.preInit();
 		//ToMeTinkers.proxy.registerFluidModels();
+		//ToMeTinkers.proxy.registerBookPages();
 	}
 	
 	public void Init(FMLInitializationEvent e) {
 		//ToMeTinkers.proxy.registerFluidModels();
+		registerFixes();
+		//ToMeTinkers.proxy.registerBookPages();
 	}
 	
 	public void postInit(FMLPostInitializationEvent e) {
 		MaterialStats.remove();
 		Materials.postInit();
+	}
+	
+	public void registerFixes() {
+		ModFixs fixes = FMLCommonHandler.instance().getDataFixer().init(ToMeTinkers.MODID, 1);
+		fixes.registerFix(FixTypes.ITEM_INSTANCE, new TraitFixer());
 	}
 	
 }

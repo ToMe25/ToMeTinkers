@@ -1,0 +1,18 @@
+{
+  "armormodifier": "bound",
+  "text": [
+    {
+      "text": "Attatching my Armor with some String to me should prevent me from accidentally dropping it."
+    }
+  ],
+  "effects": [
+    "Armor can't be dropped",
+    "Single use"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}

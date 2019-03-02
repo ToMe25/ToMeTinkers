@@ -1,0 +1,14 @@
+[
+  {
+    "type": "armormodifier",
+    "data": "modifiers/bound_armor.json"
+  },
+  {
+    "type": "armormodifier",
+    "data": "modifiers/extramods_armor.json"
+  },
+  {
+    "type": "armormodifier",
+    "data": "modifiers/avaritiafree_armor.json"
+  }
+]

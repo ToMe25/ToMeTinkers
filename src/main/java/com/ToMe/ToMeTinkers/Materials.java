@@ -168,6 +168,14 @@ public class Materials {
 				}
 			}
 		}
+		if(Loader.isModLoaded("conarm")) {
+			for(MaterialArmorStats stats:MaterialArmorStats.values()) {
+				if(stats.mat != null) {
+					stats.addTraits();
+				}
+				//stats.addTraits();
+			}
+		}
 	}
 	
 	//private static boolean isSmelteryEnabled() {
