@@ -1,6 +1,6 @@
 # ToMeTinkers
 ToMe25's Tinkers Construct Addon. Adds some Materials and Modifiers.
-Supported Mods: Avaritia
+Supported Mods: Avaritia and Matter Overdrive
 
 Material List:
 Material(Version Added)
@@ -20,7 +20,8 @@ Avaritia:
  Extra Utilities:
 
     Changes to Magical Wood(1.0)
-    Changes to Demon Ingot(1.0)
+    Changes to Enchanted Metal(1.0)
+    Changes to Demon Ingot(1.2)
     Changes to Evil Infused Iron(1.0)
 
 Matter Overdrive:
@@ -35,3 +36,4 @@ Matter Overdrive:
     Gold(1.0)
     Diamond(1.0)
     Emerald(1.0)
+    
