@@ -29,7 +29,6 @@ public class ToMeTinkers {
 	public static final String MCVERSION = "[1.12,1.12.2]";
 	public static final String DEPENDENCIES = "required-after:mantle;" + "required-after:tconstruct;"
 			+ "after:extrautils;" + "after:avaritia;" + "after:matteroverdrive;" + "after:conarm";
-
 	@Instance
 	public static ToMeTinkers instance;
 
