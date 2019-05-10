@@ -59,6 +59,7 @@ public class TraitCosmicArmor extends AbstractArmorTrait {
 	private static List<String> playersWithLeg = new ArrayList<String>();
 	private static List<String> playersWithFoot = new ArrayList<String>();
 	private static int errorMessageDelay = 0;
+	private static boolean deobf = false;
 	
 	public TraitCosmicArmor() {
 		super("avaritia_cosmic", 0xffffff);
@@ -234,20 +235,49 @@ public class TraitCosmicArmor extends AbstractArmorTrait {
 					boolean error = false;
 					try {
 						Field duration = null;
-						try {
-							duration = PotionEffect.class.getDeclaredField("duration");
-						} catch (Exception e) {
-							try {
-								duration = PotionEffect.class.getDeclaredField("field_76460_b");
+						//try {
+							//duration = PotionEffect.class.getDeclaredField("duration");
+							//duration = PotionEffect.class.getDeclaredField("field_76460_b");
+						//} catch (Exception e) {
+							//try {
+								//duration = PotionEffect.class.getDeclaredField("field_76460_b");
 								//duration = PotionEffect.class.getDeclaredField("b");
-							} catch (Exception e1) {
-								if(errorMessageDelay < 1) {
-									ToMeTinkers.logger.catching(e);
-									ToMeTinkers.logger.catching(e1);
-								}
+								//duration = PotionEffect.class.getDeclaredField("duration");
+								//deobf = true;
+							//} catch (Exception e1) {
+								//if(errorMessageDelay < 1) {
+									//ToMeTinkers.logger.catching(e);
+									//ToMeTinkers.logger.catching(e1);
+								//}
 								//ToMeTinkers.logger.catching(e);
 								//ToMeTinkers.logger.catching(e1);
+								//error = true;
+							//}
+						//}
+						if(deobf) {
+							try {
+								duration = PotionEffect.class.getDeclaredField("duration");
+							} catch (Exception e) {
+								if(errorMessageDelay < 1) {
+									ToMeTinkers.logger.catching(e);
+								}
 								error = true;
+							}
+						}
+						else {
+							try {
+								duration = PotionEffect.class.getDeclaredField("field_76460_b");
+							} catch (Exception e) {
+								try {
+									duration = PotionEffect.class.getDeclaredField("duration");
+									deobf = true;
+								} catch (Exception e1) {
+									if(errorMessageDelay < 1) {
+										ToMeTinkers.logger.catching(e);
+										ToMeTinkers.logger.catching(e1);
+									}
+									error = true;
+								}
 							}
 						}
 						//Field duration = PotionEffect.class.getDeclaredField("duration");
