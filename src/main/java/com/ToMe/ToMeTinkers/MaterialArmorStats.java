@@ -125,8 +125,16 @@ public enum MaterialArmorStats {
 	private MaterialArmorStats(Material mat, CoreMaterialStats coreStats, PlatesMaterialStats plateStats, TrimMaterialStats trimStats) {
 		if(mat != null) {
 			this.mat = mat;
-			if(coreStats != null && plateStats != null && trimStats != null) {
+			//if(coreStats != null && plateStats != null && trimStats != null) {
+			if(coreStats != null && !mat.hasStats(ArmorMaterialType.CORE) && plateStats != null && !mat.hasStats(ArmorMaterialType.PLATES) && trimStats != null && !mat.hasStats(ArmorMaterialType.TRIM)) {
 				TinkerRegistry.addMaterialStats(mat, coreStats, plateStats, trimStats);
+				//try {
+					//if(!mat.hasStats("core") && !mat.hasStats("plates") && ! mat.hasStats("trim")) {
+						//TinkerRegistry.addMaterialStats(mat, coreStats, plateStats, trimStats);
+					//}
+				//} catch (Exception e) {
+					//ToMeTinkers.logger.catching(e);
+				//}
 			}
 			if(Config.debug) {
 				ToMeTinkers.logger.info("Finished Conarm Material Integration for Material " + mat.identifier + ".");

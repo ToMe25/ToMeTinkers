@@ -809,6 +809,13 @@ public enum MaterialStats {
 					// TinkerRegistry.addMaterialStats(mat, headStats, handleStats, extraStats,
 					// bowStats == null ? whyNot : bowStats);
 					TinkerRegistry.addMaterialStats(mat, headStats, handleStats, extraStats);
+					//try {
+						//if(!mat.hasStats("head") && !mat.hasStats("handle") && ! mat.hasStats("extra")) {
+							//TinkerRegistry.addMaterialStats(mat, headStats, handleStats, extraStats);
+						//}
+					//} catch (Exception e) {
+						//ToMeTinkers.logger.catching(e);
+					//}
 				}
 				if (!mat.hasStats(MaterialTypes.BOW)) {
 					TinkerRegistry.addMaterialStats(mat, bowStats == null ? whyNot : bowStats);
