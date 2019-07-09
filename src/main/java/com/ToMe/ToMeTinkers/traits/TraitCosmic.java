@@ -148,9 +148,17 @@ public class TraitCosmic extends AbstractTrait {
 		data.level++;
 		NBTTagList parts = TagUtil.getBaseMaterialsTagList(rootCompound);
 		if(data.level == 1 && parts.tagCount() < 3) {
-			if(Util.getHeadMaterial(rootCompound).getAllTraits().contains(this)) {
-				data.level++;
-				modifiers += 5;
+			//if(Util.getHeadMaterial(rootCompound).getAllTraits().contains(this)) {
+				//data.level++;
+				//modifiers += 5;
+			//}
+			try {
+				if(Util.getHeadMaterial(rootCompound).getAllTraits().contains(this)) {
+					data.level++;
+					modifiers += 5;
+				}
+			} catch (Exception e) {
+				ToMeTinkers.logger.catching(e);
 			}
 		}
 		data.write(modifierTag);

@@ -59,7 +59,9 @@ public class Util {
 	
 	public static Material getHeadMaterial(NBTTagCompound rootTag) {
 		NBTTagList tagList = TagUtil.getBaseMaterialsTagList(rootTag);
-		return TinkerUtil.getMaterialsFromTagList(tagList).get(1);//1 should be Head.
+		List<Material> materials = TinkerUtil.getMaterialsFromTagList(tagList);
+		return materials.size() > 1 ? materials.get(1) : materials.get(0);
+		//return TinkerUtil.getMaterialsFromTagList(tagList).get(1);//1 should be Head.
 	}
 	
 	public static NonNullList<IModifier> getModifiers(NBTTagCompound rootCompound) {
