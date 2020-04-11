@@ -1,12 +1,12 @@
 {
-  "armormodifier": "extramodifier",
+  "armormodifier": "avaritiafree",
   "text": [
     {
       "text": "Mehr Modifikatoren!"
     }
   ],
   "effects": [
-    "Fügt einen Modifier hinzu",
+    "Fügt 5 modifikatoren hinzu",
     "Single use",
     "Benötigt KEINEN modifikator"
   ],

@@ -32,4 +32,6 @@ hs_err_pid*
 /build/
 *.launch
 /.*
+/gradlew
+/gradlew.bat
 !.gitignore
