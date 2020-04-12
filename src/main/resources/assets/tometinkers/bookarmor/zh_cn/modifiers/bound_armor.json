@@ -1,0 +1,18 @@
+{
+  "armormodifier": "bound",
+  "text": [
+    {
+      "text": "用一根线把我的护甲和我绑起来，这样我就不会不小心丢掉它们了。"
+    }
+  ],
+  "effects": [
+    "护甲将不能被丢弃",
+    "只能强化一次"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}

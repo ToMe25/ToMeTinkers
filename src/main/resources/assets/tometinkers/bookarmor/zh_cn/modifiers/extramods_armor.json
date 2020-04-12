@@ -1,0 +1,19 @@
+{
+  "armormodifier": "extramodifier",
+  "text": [
+    {
+      "text": "更多强化槽！"
+    }
+  ],
+  "effects": [
+    "添加一个额外的强化槽",
+    "只能强化一次",
+    "不需要强化槽"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}
