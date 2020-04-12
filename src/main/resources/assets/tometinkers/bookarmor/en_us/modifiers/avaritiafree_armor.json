@@ -1,12 +1,12 @@
 {
-  "armormodifier": "extramodifier",
+  "armormodifier": "avaritiafree",
   "text": [
     {
       "text": "More Modifiers!"
     }
   ],
   "effects": [
-    "Adds an additional modifiers",
+    "Adds 5 additional modifiers",
     "Single use",
     "Does NOT require a modifier"
   ],

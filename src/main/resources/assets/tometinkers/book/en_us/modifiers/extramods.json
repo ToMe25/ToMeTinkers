@@ -1,12 +1,12 @@
 {
-  "modifier": "avaritiafree",
+  "modifier": "extramodifier",
   "text": [
     {
       "text": "More Modifiers!"
     }
   ],
   "effects": [
-    "Adds 5 additional modifier",
+    "Adds an additional modifier",
     "Single use",
     "Does NOT require a modifier"
   ],

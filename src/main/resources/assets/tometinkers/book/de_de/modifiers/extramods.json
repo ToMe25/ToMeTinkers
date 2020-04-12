@@ -1,13 +1,13 @@
 {
-  "modifier": "avaritiafree",
+  "modifier": "extramodifier",
   "text": [
     {
       "text": "Mehr Modifikatoren!"
     }
   ],
   "effects": [
-    "Fügt 5 modifikatoren hinzu",
-    "Single Use",
+    "Fügt einen modifikator hinzu",
+    "Single use",
     "Benötigt KEINEN modifikator"
   ],
   "demoTool": [

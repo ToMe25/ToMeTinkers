@@ -33,6 +33,13 @@ minecraft {
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
 }
 
+jar {
+    manifest {
+        attributes 'FMLCorePlugin': 'com.ToMe.ToMeTinkers.ToMeTinkersLoadingPlugin'
+        attributes 'FMLCorePluginContainsFMLMod': 'true'
+    }
+}
+
 repositories {
     maven {
         name 'progwml Maven'
@@ -62,7 +69,7 @@ dependencies {
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
     deobfCompile "slimeknights.mantle:Mantle:1.12-+"
-    deobfCompile "slimeknights:TConstruct:1.12-+"
+    deobfCompile "slimeknights:TConstruct:1.12.2-+"
 }
 
 processResources {
