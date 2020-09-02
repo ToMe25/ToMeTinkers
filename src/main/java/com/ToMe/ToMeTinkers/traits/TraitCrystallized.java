@@ -2,16 +2,16 @@ package com.ToMe.ToMeTinkers.traits;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
+//import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntityDamageSource;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.TagUtil;
-import slimeknights.tconstruct.library.utils.TinkerUtil;
+//import slimeknights.tconstruct.library.utils.TinkerUtil;
 import slimeknights.tconstruct.shared.client.ParticleEffect;
 import slimeknights.tconstruct.tools.TinkerTools;
-import slimeknights.tconstruct.tools.modifiers.ModReinforced;
-import slimeknights.tconstruct.tools.traits.TraitPrickly;
+//import slimeknights.tconstruct.tools.modifiers.ModReinforced;
+//import slimeknights.tconstruct.tools.traits.TraitPrickly;
 
 public class TraitCrystallized extends AbstractTrait {
 
@@ -42,7 +42,7 @@ public class TraitCrystallized extends AbstractTrait {
 		if(entity.getEntityWorld().isRemote) {
 			return 0;
 		}
-		NBTTagCompound tag = TinkerUtil.getModifierTag(tool, identifier);
+		//NBTTagCompound tag = TinkerUtil.getModifierTag(tool, identifier);
 		float chance = 0.4f;//Reinforced 2
 		if(chance >= random.nextFloat()) {
 			newDamage -= damage;

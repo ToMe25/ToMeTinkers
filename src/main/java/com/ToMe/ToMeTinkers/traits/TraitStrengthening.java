@@ -1,9 +1,9 @@
 package com.ToMe.ToMeTinkers.traits;
 
-import net.minecraft.block.Block;
-import net.minecraft.item.ItemStack;
+//import net.minecraft.block.Block;
+//import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraftforge.event.entity.player.PlayerEvent;
+//import net.minecraftforge.event.entity.player.PlayerEvent;
 import slimeknights.tconstruct.library.tools.ToolNBT;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.TagUtil;

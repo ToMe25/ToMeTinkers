@@ -1,25 +1,25 @@
 package com.ToMe.ToMeTinkers;
 
 import net.minecraft.launchwrapper.IClassTransformer;
-import net.minecraft.server.MinecraftServer;
-import net.minecraftforge.common.ForgeHooks;
-import net.minecraftforge.common.MinecraftForge;
+//import net.minecraft.server.MinecraftServer;
+//import net.minecraftforge.common.ForgeHooks;
+//import net.minecraftforge.common.MinecraftForge;
 
 import java.io.File;
-import java.io.FileOutputStream;
-import java.lang.reflect.Field;
+//import java.io.FileOutputStream;
+//import java.lang.reflect.Field;
 
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.tree.AbstractInsnNode;
 import org.objectweb.asm.tree.ClassNode;
-import org.objectweb.asm.tree.FieldInsnNode;
-import org.objectweb.asm.tree.FrameNode;
+//import org.objectweb.asm.tree.FieldInsnNode;
+//import org.objectweb.asm.tree.FrameNode;
 import org.objectweb.asm.tree.InsnList;
-import org.objectweb.asm.tree.InsnNode;
-import org.objectweb.asm.tree.JumpInsnNode;
-import org.objectweb.asm.tree.LabelNode;
+//import org.objectweb.asm.tree.InsnNode;
+//import org.objectweb.asm.tree.JumpInsnNode;
+//import org.objectweb.asm.tree.LabelNode;
 import org.objectweb.asm.tree.LineNumberNode;
 import org.objectweb.asm.tree.MethodInsnNode;
 import org.objectweb.asm.tree.MethodNode;
@@ -223,8 +223,8 @@ public class ClassTransformer implements IClassTransformer {
 					//AbstractInsnNode frameNode = null;
 					//AbstractInsnNode labelNode = null;
 					//AbstractInsnNode varNode = null;
-					boolean start = false;
-					boolean found = false;
+					//boolean start = false;
+					//boolean found = false;
 					for (AbstractInsnNode instruction : method.instructions.toArray()) {
 						if(instruction instanceof LineNumberNode) {
 							//if (((LineNumberNode) instruction).line == 454) {//DEOBF

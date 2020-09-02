@@ -1,6 +1,6 @@
 package com.ToMe.ToMeTinkers.traits;
 
-import com.ToMe.ToMeTinkers.ToMeTinkers;
+//import com.ToMe.ToMeTinkers.ToMeTinkers;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;

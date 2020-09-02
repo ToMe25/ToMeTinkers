@@ -45,6 +45,10 @@ repositories {
         name 'progwml Maven'
         url 'http://dvs1.progwml6.com/files/maven'
     }
+    maven {
+        name 'CurseForge Maven'
+        url 'https://minecraft.curseforge.com/api/maven/'
+    }
 }
 
 dependencies {
@@ -70,6 +74,8 @@ dependencies {
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
     deobfCompile "slimeknights.mantle:Mantle:1.12-+"
     deobfCompile "slimeknights:TConstruct:1.12.2-+"
+    deobfProvided 'armory-expansion:armoryexpansion:1.4.2'
+    deobfCompile 'constructs-armory:conarm:1.12.2:1.2.5.9'
 }
 
 processResources {

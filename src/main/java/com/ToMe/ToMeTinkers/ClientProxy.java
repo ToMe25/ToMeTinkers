@@ -1,37 +1,37 @@
 package com.ToMe.ToMeTinkers;
 
-import java.util.HashMap;
-import java.util.Map;
+//import java.util.HashMap;
+//import java.util.Map;
 
 //import c4.conarm.lib.book.ArmoryBook;
 import net.minecraft.block.Block;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.BlockRendererDispatcher;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+//import net.minecraft.client.Minecraft;
+//import net.minecraft.client.renderer.BlockRendererDispatcher;
+//import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+//import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.event.RegistryEvent;
+//import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fml.common.Loader;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+//import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import slimeknights.mantle.client.book.repository.FileRepository;
-import slimeknights.tconstruct.library.book.TinkerBook;
+//import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+//import slimeknights.mantle.client.book.repository.FileRepository;
+//import slimeknights.tconstruct.library.book.TinkerBook;
 import slimeknights.tconstruct.library.client.MaterialRenderInfo;
-import slimeknights.tconstruct.library.client.MaterialRenderInfo.AbstractMaterialRenderInfo;
-import slimeknights.tconstruct.library.client.texture.AnimatedColoredTexture;
-import slimeknights.tconstruct.library.client.texture.TextureColoredTexture;
-import slimeknights.tconstruct.library.client.texture.TinkerTexture;
+//import slimeknights.tconstruct.library.client.MaterialRenderInfo.AbstractMaterialRenderInfo;
+//import slimeknights.tconstruct.library.client.texture.AnimatedColoredTexture;
+//import slimeknights.tconstruct.library.client.texture.TextureColoredTexture;
+//import slimeknights.tconstruct.library.client.texture.TinkerTexture;
 import slimeknights.tconstruct.library.materials.Material;
 
 public class ClientProxy extends CommonProxy {
 	
 	//private static BlockRendererDispatcher blockrendererdispatcher = Minecraft.getMinecraft().getBlockRendererDispatcher();
-	private static Map<Material, String> customRenderInfos = new HashMap<Material, String>();
+	//private static Map<Material, String> customRenderInfos = new HashMap<Material, String>();
 	
 	@Override
 	//public void setRenderInfo(Material material, int low, int mid, int high) {

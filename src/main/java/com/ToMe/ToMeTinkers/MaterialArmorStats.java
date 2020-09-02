@@ -9,7 +9,7 @@ import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.materials.Material;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.traits.ITrait;
-import slimeknights.tconstruct.tools.TinkerMaterials;
+//import slimeknights.tconstruct.tools.TinkerMaterials;
 
 public enum MaterialArmorStats {
 	

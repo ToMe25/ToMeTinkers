@@ -9,13 +9,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.text.translation.I18n;
 import slimeknights.tconstruct.library.Util;
-import slimeknights.tconstruct.library.modifiers.ModifierNBT;
-import slimeknights.tconstruct.library.traits.AbstractTrait;
+//import slimeknights.tconstruct.library.modifiers.ModifierNBT;
+//import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.traits.AbstractTraitLeveled;
-import slimeknights.tconstruct.library.traits.ITrait;
+//import slimeknights.tconstruct.library.traits.ITrait;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
-import slimeknights.tconstruct.tools.modifiers.ModReinforced;
-import slimeknights.tconstruct.tools.traits.TraitWritable;
+//import slimeknights.tconstruct.tools.modifiers.ModReinforced;
+//import slimeknights.tconstruct.tools.traits.TraitWritable;
 
 //public class TraitReinforced extends ModReinforced implements ITrait {
 //public class TraitReinforced extends AbstractTrait {
@@ -36,7 +36,7 @@ public class TraitReinforced extends AbstractTraitLeveled {
 	}
 	
 	private float getReinforcedChance(NBTTagCompound modifierTag) {
-		ModifierNBT data = ModifierNBT.readTag(modifierTag);
+		//ModifierNBT data = ModifierNBT.readTag(modifierTag);
 		return (float) lvl * chancePerLevel;
 	}
 	
@@ -68,7 +68,7 @@ public class TraitReinforced extends AbstractTraitLeveled {
 	
 	@Override
 	public String getTooltip(NBTTagCompound modifierTag, boolean detailed) {
-		ModifierNBT data = ModifierNBT.readTag(modifierTag);
+		//ModifierNBT data = ModifierNBT.readTag(modifierTag);
 		if (lvl == 10) {
 			//return Util.translate("modifier.%s.unbreakable", getIdentifier());
 			return Util.translate("modifier.reinforced.unbreakable");

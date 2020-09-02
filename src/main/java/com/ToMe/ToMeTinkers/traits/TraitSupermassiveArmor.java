@@ -1,10 +1,10 @@
 package com.ToMe.ToMeTinkers.traits;
 
-import java.lang.reflect.Field;
-import java.util.Collection;
+//import java.lang.reflect.Field;
+//import java.util.Collection;
 
 import com.ToMe.ToMeTinkers.Config;
-import com.ToMe.ToMeTinkers.ToMeTinkers;
+//import com.ToMe.ToMeTinkers.ToMeTinkers;
 import com.ToMe.ToMeTinkers.Util;
 
 import c4.conarm.lib.traits.AbstractArmorTrait;
@@ -16,11 +16,11 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingKnockBackEvent;
 import slimeknights.tconstruct.library.materials.Material;
-import slimeknights.tconstruct.library.modifiers.IModifier;
-import slimeknights.tconstruct.library.traits.ITrait;
+//import slimeknights.tconstruct.library.modifiers.IModifier;
+//import slimeknights.tconstruct.library.traits.ITrait;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
-import slimeknights.tconstruct.tools.modifiers.ModExtraTrait;
+//import slimeknights.tconstruct.tools.modifiers.ModExtraTrait;
 
 public class TraitSupermassiveArmor extends AbstractArmorTrait {
 

@@ -13,8 +13,8 @@ import com.ToMe.ToMeTinkers.traits.TraitUnbreakable;
 
 //import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
-import slimeknights.tconstruct.tools.modifiers.ModReinforced;
-import slimeknights.tconstruct.tools.traits.TraitBonusDamage;
+//import slimeknights.tconstruct.tools.modifiers.ModReinforced;
+//import slimeknights.tconstruct.tools.traits.TraitBonusDamage;
 
 public class Traits {
 	

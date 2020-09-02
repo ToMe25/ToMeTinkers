@@ -5,27 +5,27 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
+//import java.util.Random;
 
 import javax.annotation.Nullable;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
+//import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.TextFormatting;
+//import net.minecraft.util.ResourceLocation;
+//import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fml.common.Loader;
-import net.minecraftforge.oredict.OreDictionary;
+//import net.minecraftforge.oredict.OreDictionary;
 import slimeknights.mantle.util.RecipeMatch;
 import slimeknights.tconstruct.TConstruct;
-import slimeknights.tconstruct.TinkerIntegration;
+//import slimeknights.tconstruct.TinkerIntegration;
 import slimeknights.tconstruct.library.MaterialIntegration;
 import slimeknights.tconstruct.library.TinkerRegistry;
-import slimeknights.tconstruct.library.events.TinkerRegisterEvent.MeltingRegisterEvent;
+//import slimeknights.tconstruct.library.events.TinkerRegisterEvent.MeltingRegisterEvent;
 import slimeknights.tconstruct.library.fluid.FluidMolten;
 import slimeknights.tconstruct.library.materials.ArrowShaftMaterialStats;
 import slimeknights.tconstruct.library.materials.BowMaterialStats;
@@ -43,10 +43,10 @@ import slimeknights.tconstruct.library.smeltery.MeltingRecipe;
 import slimeknights.tconstruct.library.smeltery.PreferenceCastingRecipe;
 import slimeknights.tconstruct.shared.TinkerFluids;
 import slimeknights.tconstruct.smeltery.TinkerSmeltery;
-import slimeknights.tconstruct.tools.TinkerMaterials;
+//import slimeknights.tconstruct.tools.TinkerMaterials;
 import slimeknights.tconstruct.tools.TinkerTraits;
-import slimeknights.tconstruct.tools.ranged.BoltCoreCastingRecipe;
-import slimeknights.tconstruct.tools.ranged.item.BoltCore;
+//import slimeknights.tconstruct.tools.ranged.BoltCoreCastingRecipe;
+//import slimeknights.tconstruct.tools.ranged.item.BoltCore;
 
 public enum MaterialStats {
 

@@ -86,7 +86,7 @@ public class ModifiersArmor {
 		};
 		
 		private String id;
-		private Modifier mod;
+		//private Modifier mod;
 		
 		private ModifierRegister(String id) {
 			this.id = id;
