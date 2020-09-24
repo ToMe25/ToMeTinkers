@@ -102,6 +102,7 @@ public class Util {
 				try {
 					Field traits = ModExtraTrait.class.getDeclaredField("traits");
 					traits.setAccessible(true);
+					@SuppressWarnings("unchecked")
 					Collection<ITrait> traitList = (Collection<ITrait>) traits.get(embossment);
 					if(debug) {
 						String traitsStr = "";

@@ -147,6 +147,7 @@ public class TraitCosmicArmor extends AbstractArmorTrait {
 		}
 	}*/
 	
+	@SuppressWarnings("unused")
 	private int getCosmicLevel(NBTTagCompound rootTag) {
 		int lvl = 0;
 		NBTTagList parts = TagUtil.getBaseMaterialsTagList(rootTag);

@@ -956,6 +956,7 @@ public enum MaterialStats {
 			List<MeltingRecipe> remove = new ArrayList<MeltingRecipe>();
 			Field f = TinkerRegistry.class.getDeclaredField("meltingRegistry");
 			f.setAccessible(true);
+			@SuppressWarnings("unchecked")
 			List<MeltingRecipe> list = (List<MeltingRecipe>) f.get(null);
 			for (MeltingRecipe r : list) {
 				// if(r.input instanceof RecipeMatch.Oredict) {
@@ -1014,6 +1015,7 @@ public enum MaterialStats {
 			Map<ICastingRecipe, Fluid> remove = new HashMap<ICastingRecipe, Fluid>();
 			Field f = TinkerRegistry.class.getDeclaredField("basinCastRegistry");
 			f.setAccessible(true);
+			@SuppressWarnings("unchecked")
 			List<ICastingRecipe> list = (List<ICastingRecipe>) f.get(null);
 			for (ICastingRecipe r : list) {
 				for (ItemStack output : removeBasinCasting.keySet()) {
@@ -1053,6 +1055,7 @@ public enum MaterialStats {
 			Map<ICastingRecipe, Fluid> remove = new HashMap<ICastingRecipe, Fluid>();
 			Field f = TinkerRegistry.class.getDeclaredField("tableCastRegistry");
 			f.setAccessible(true);
+			@SuppressWarnings("unchecked")
 			List<ICastingRecipe> list = (List<ICastingRecipe>) f.get(null);
 			for (ICastingRecipe r : list) {
 				for (ItemStack output : removeTableCasting.keySet()) {
@@ -1159,12 +1162,12 @@ public enum MaterialStats {
 	 * @param stack2
 	 * @return
 	 */
-	private static boolean stacksEqualFuzy(ItemStack stack1, ItemStack stack2) {
+	/*private static boolean stacksEqualFuzy(ItemStack stack1, ItemStack stack2) {
 		if (stack1.getItem().equals(stack2.getItem()) && stack1.getItemDamage() == stack2.getItemDamage()
 				&& stack1.getCount() == stack2.getCount()) {
 			return true;
 		}
 		return false;
-	}
+	}*/
 
 }

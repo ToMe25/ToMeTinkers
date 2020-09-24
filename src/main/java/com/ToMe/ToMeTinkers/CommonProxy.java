@@ -14,7 +14,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.oredict.OreDictionary;
 //import slimeknights.mantle.client.book.BookHelper;
-import slimeknights.tconstruct.library.events.TinkerRegisterEvent.MeltingRegisterEvent;
+//import slimeknights.tconstruct.library.events.TinkerRegisterEvent.MeltingRegisterEvent;
 import slimeknights.tconstruct.library.materials.Material;
 
 public class CommonProxy {
@@ -62,13 +62,13 @@ public class CommonProxy {
 		//Modifiers.registerModifiers();
 	//}
 	
-	public static void registerBlocks(RegistryEvent.Register<Block> e) {
+	public /*static*/ void registerBlocks(RegistryEvent.Register<Block> e) {
 		Materials.registerFluids(e);
 	}
 	
-	public static void onMeltingRegister(MeltingRegisterEvent e) {
+	/*public static void onMeltingRegister(MeltingRegisterEvent e) {
 		//MaterialStats.onMeltingRegister(e);
-	}
+	}*/
 	
 	public void preInit(FMLPreInitializationEvent e) {
 		if(ToMeTinkers.cfg == null) {

@@ -76,6 +76,7 @@ public class TraitReinforced extends AbstractTraitLeveled {
 		return super.getTooltip(modifierTag, detailed);
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public List<String> getExtraInfo(ItemStack tool, NBTTagCompound modifierTag) {
 		String loc = String.format(LOC_Extra, getIdentifier());

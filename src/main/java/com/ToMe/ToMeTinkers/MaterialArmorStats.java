@@ -146,15 +146,37 @@ public enum MaterialArmorStats {
 		
 	}
 	
+	/**
+	 * Registers a trait to a materials CORE, PLATES, and TRIM stats;
+	 * 
+	 * @param mat   the material to add the trait to.
+	 * @param trait the trait to add.
+	 */
 	protected void addTrait(Material mat, AbstractTrait trait) {
-		mat.addTrait(trait, ArmorMaterialType.CORE);
-		mat.addTrait(trait, ArmorMaterialType.PLATES);
-		mat.addTrait(trait, ArmorMaterialType.TRIM);
+		if(!mat.hasTrait(trait.getIdentifier(), ArmorMaterialType.CORE)) {
+			mat.addTrait(trait, ArmorMaterialType.CORE);
+		}
+		if(!mat.hasTrait(trait.getIdentifier(), ArmorMaterialType.PLATES)) {
+			mat.addTrait(trait, ArmorMaterialType.PLATES);
+		}
+		if(!mat.hasTrait(trait.getIdentifier(), ArmorMaterialType.TRIM)) {
+			mat.addTrait(trait, ArmorMaterialType.TRIM);
+		}
 	}
 	
+	/**
+	 * Registers a trait to a materials PLATES and TRIM stats.
+	 * 
+	 * @param mat   the material to add the trait to.
+	 * @param trait the trait to add.
+	 */
 	protected void addSecTrait(Material mat, AbstractTrait trait) {
-		mat.addTrait(trait, ArmorMaterialType.PLATES);
-		mat.addTrait(trait, ArmorMaterialType.TRIM);
+		if(!mat.hasTrait(trait.getIdentifier(), ArmorMaterialType.PLATES)) {
+			mat.addTrait(trait, ArmorMaterialType.PLATES);
+		}
+		if(!mat.hasTrait(trait.getIdentifier(), ArmorMaterialType.TRIM)) {
+			mat.addTrait(trait, ArmorMaterialType.TRIM);
+		}
 	}
 	
 }

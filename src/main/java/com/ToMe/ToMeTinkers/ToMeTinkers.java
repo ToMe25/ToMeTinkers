@@ -17,7 +17,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 //import slimeknights.tconstruct.library.TinkerRegistry;
-import slimeknights.tconstruct.library.events.TinkerRegisterEvent.MeltingRegisterEvent;
+//import slimeknights.tconstruct.library.events.TinkerRegisterEvent.MeltingRegisterEvent;
 
 @EventBusSubscriber
 @Mod(modid = ToMeTinkers.MODID, name = ToMeTinkers.NAME, version = ToMeTinkers.VERSION, acceptedMinecraftVersions = ToMeTinkers.MCVERSION, dependencies = ToMeTinkers.DEPENDENCIES)
@@ -61,10 +61,10 @@ public class ToMeTinkers {
 		proxy.registerBlocks(e);
 	}
 
-	@SubscribeEvent
+	/*@SubscribeEvent
 	public static void onMeltingRegister(MeltingRegisterEvent e) {
 		proxy.onMeltingRegister(e);
-	}
+	}*/
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent e) {

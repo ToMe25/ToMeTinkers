@@ -383,7 +383,7 @@ public class TraitCosmic extends AbstractTrait {
 						//}
 					}
 					try {
-						Class EventHandler = Class.forName("morph.avaritia.handler.AvaritiaEventHandler");
+						Class<?> EventHandler = Class.forName("morph.avaritia.handler.AvaritiaEventHandler");
 						//for(Method m:EventHandler.getDeclaredMethods()) {
 							//String Parameters = "";
 							//for(Class<?> c:m.getParameterTypes()) {
