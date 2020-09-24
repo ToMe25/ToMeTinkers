@@ -1,15 +1,15 @@
 package com.ToMe.ToMeTinkers;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+//import javax.annotation.Nullable;
 
-import net.minecraft.entity.item.EntityItem;
+//import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Slot;
-import net.minecraft.item.Item;
+//import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraftforge.common.ForgeHooks;
+//import net.minecraft.nbt.NBTTagCompound;
+//import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.fml.common.Loader;
 import slimeknights.tconstruct.library.modifiers.IModifier;
 import slimeknights.tconstruct.library.utils.TinkerUtil;

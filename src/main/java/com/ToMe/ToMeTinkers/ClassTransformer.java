@@ -1,25 +1,25 @@
 package com.ToMe.ToMeTinkers;
 
 import net.minecraft.launchwrapper.IClassTransformer;
-import net.minecraft.server.MinecraftServer;
-import net.minecraftforge.common.ForgeHooks;
-import net.minecraftforge.common.MinecraftForge;
+//import net.minecraft.server.MinecraftServer;
+//import net.minecraftforge.common.ForgeHooks;
+//import net.minecraftforge.common.MinecraftForge;
 
 import java.io.File;
-import java.io.FileOutputStream;
-import java.lang.reflect.Field;
+//import java.io.FileOutputStream;
+//import java.lang.reflect.Field;
 
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.tree.AbstractInsnNode;
 import org.objectweb.asm.tree.ClassNode;
-import org.objectweb.asm.tree.FieldInsnNode;
-import org.objectweb.asm.tree.FrameNode;
+//import org.objectweb.asm.tree.FieldInsnNode;
+//import org.objectweb.asm.tree.FrameNode;
 import org.objectweb.asm.tree.InsnList;
-import org.objectweb.asm.tree.InsnNode;
-import org.objectweb.asm.tree.JumpInsnNode;
-import org.objectweb.asm.tree.LabelNode;
+//import org.objectweb.asm.tree.InsnNode;
+//import org.objectweb.asm.tree.JumpInsnNode;
+//import org.objectweb.asm.tree.LabelNode;
 import org.objectweb.asm.tree.LineNumberNode;
 import org.objectweb.asm.tree.MethodInsnNode;
 import org.objectweb.asm.tree.MethodNode;
@@ -62,7 +62,8 @@ public class ClassTransformer implements IClassTransformer {
 				ToMeTinkers.cfg = new Config(conf);
 			}
 			try {
-				if(ToMeTinkers.cfg.boundTweak) {
+				//if(ToMeTinkers.cfg.boundTweak) {
+				if(Config.boundTweak) {
 					return PatchItem(basicClass, isObfuscated);
 				}
 			} catch (Exception e) {
@@ -77,7 +78,8 @@ public class ClassTransformer implements IClassTransformer {
 				ToMeTinkers.cfg = new Config(conf);
 			}
 			try {
-				if(ToMeTinkers.cfg.boundTweak) {
+				//if(ToMeTinkers.cfg.boundTweak) {
+				if(Config.boundTweak) {
 					return PatchContainer(basicClass, isObfuscated);
 				}
 			} catch (Exception e) {
@@ -91,7 +93,8 @@ public class ClassTransformer implements IClassTransformer {
 	private byte[] PatchItem(byte[] startClass, boolean obfuscated) {
 	//private byte[] PatchItemDrop(byte[] startClass, boolean obfuscated) {
 	//protected byte[] PatchForgeHooks(byte[] startClass, boolean obfuscated) {
-		if(ToMeTinkers.cfg.debug) {
+		//if(ToMeTinkers.cfg.debug) {
+		if(Config.debug) {
 			//ToMeTinkers.logger.info("Started Tweaking EntityPlayer class.");
 			ToMeTinkers.logger.info("Started Tweaking Item class.");
 		}
@@ -125,12 +128,14 @@ public class ClassTransformer implements IClassTransformer {
 						InsnList toAdd = new InsnList();
 						toAdd.add(new VarInsnNode(Opcodes.ALOAD, 2));
 						toAdd.add(new VarInsnNode(Opcodes.ALOAD, 1));
-						toAdd.add(new MethodInsnNode(Opcodes.INVOKESTATIC, "com/ToMe/ToMeTinkers/Hooks", "dropItem", METHOD_DESCRIPTOR));
+						//toAdd.add(new MethodInsnNode(Opcodes.INVOKESTATIC, "com/ToMe/ToMeTinkers/Hooks", "dropItem", METHOD_DESCRIPTOR));
+						toAdd.add(new MethodInsnNode(Opcodes.INVOKESTATIC, "com/ToMe/ToMeTinkers/Hooks", "dropItem", METHOD_DESCRIPTOR, false));
 						method.instructions.insertBefore(targetNode, toAdd);
 						method.instructions.remove(targetNode);
 						//ClassWriter classWriter = new ClassWriter(ClassWriter.COMPUTE_MAXS | ClassWriter.COMPUTE_FRAMES);
 						//classNode.accept(classWriter);
-						if(ToMeTinkers.cfg.debug) {
+						//if(ToMeTinkers.cfg.debug) {
+						if(Config.debug) {
 							ToMeTinkers.logger.info("Tweaked Item.onDroppedByPlayer");
 						}
 						//return classWriter.toByteArray();
@@ -208,7 +213,8 @@ public class ClassTransformer implements IClassTransformer {
 	}*/
 	
 	private byte[] PatchContainer(byte[] startClass, boolean obfuscated) {
-		if(ToMeTinkers.cfg.debug) {
+		//if(ToMeTinkers.cfg.debug) {
+		if(Config.debug) {
 			ToMeTinkers.logger.info("Started Tweaking Container class.");
 		}
 		try {
@@ -223,8 +229,8 @@ public class ClassTransformer implements IClassTransformer {
 					//AbstractInsnNode frameNode = null;
 					//AbstractInsnNode labelNode = null;
 					//AbstractInsnNode varNode = null;
-					boolean start = false;
-					boolean found = false;
+					//boolean start = false;
+					//boolean found = false;
 					for (AbstractInsnNode instruction : method.instructions.toArray()) {
 						if(instruction instanceof LineNumberNode) {
 							//if (((LineNumberNode) instruction).line == 454) {//DEOBF
@@ -338,12 +344,14 @@ public class ClassTransformer implements IClassTransformer {
 						toAdd.add(new VarInsnNode(Opcodes.ALOAD, 7));
 						toAdd.add(new VarInsnNode(Opcodes.ALOAD, 4));
 						toAdd.add(new VarInsnNode(Opcodes.ILOAD, 2));
-						toAdd.add(new MethodInsnNode(Opcodes.INVOKESTATIC, "com/ToMe/ToMeTinkers/Hooks", "dropItem", METHOD_DESCRIPTOR));
+						//toAdd.add(new MethodInsnNode(Opcodes.INVOKESTATIC, "com/ToMe/ToMeTinkers/Hooks", "dropItem", METHOD_DESCRIPTOR));
+						toAdd.add(new MethodInsnNode(Opcodes.INVOKESTATIC, "com/ToMe/ToMeTinkers/Hooks", "dropItem", METHOD_DESCRIPTOR, false));
 						toAdd.add(new VarInsnNode(Opcodes.ILOAD, 1));
 						//toAdd.add(new VarInsnNode(Opcodes.ALOAD, 3));
 						method.instructions.insert(targetNode, toAdd);
 						//method.instructions.remove(targetNode);
-						if(ToMeTinkers.cfg.debug) {
+						//if(ToMeTinkers.cfg.debug) {
+						if(Config.debug) {
 							ToMeTinkers.logger.info("Tweaked Container.slotClick");
 						}
 						changed = true;

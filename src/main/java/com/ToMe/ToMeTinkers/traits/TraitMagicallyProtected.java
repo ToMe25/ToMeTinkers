@@ -1,10 +1,10 @@
 package com.ToMe.ToMeTinkers.traits;
 
-import com.ToMe.ToMeTinkers.ToMeTinkers;
+//import com.ToMe.ToMeTinkers.ToMeTinkers;
 import com.ToMe.ToMeTinkers.Util;
 
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
+//import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;

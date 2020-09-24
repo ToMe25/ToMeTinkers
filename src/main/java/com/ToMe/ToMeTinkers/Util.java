@@ -1,22 +1,22 @@
 package com.ToMe.ToMeTinkers;
 
 import java.lang.reflect.Field;
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import net.minecraft.entity.Entity;
+//import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTBase;
+//import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.NonNullList;
-import scala.tools.nsc.doc.model.Trait;
+//import scala.tools.nsc.doc.model.Trait;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.materials.Material;
 import slimeknights.tconstruct.library.modifiers.IModifier;
-import slimeknights.tconstruct.library.modifiers.Modifier;
+//import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.modifiers.ModifierNBT;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.traits.ITrait;
@@ -40,7 +40,7 @@ public class Util {
 	}*/
 	
 	public static boolean hasTrait(EntityPlayer player, AbstractTrait trait) {
-		boolean hasTrait = false;
+		//boolean hasTrait = false;
 		//for(ItemStack stack:getEquipmentAndArmor(player)) {//armory expansion compat.
 		for(ItemStack stack:player.getEquipmentAndArmor()) {//armory expansion compat.
 			//return TinkerUtil.hasTrait(TagUtil.getTagSafe(stack), trait.getIdentifier());//isToolWithTrait
@@ -102,6 +102,7 @@ public class Util {
 				try {
 					Field traits = ModExtraTrait.class.getDeclaredField("traits");
 					traits.setAccessible(true);
+					@SuppressWarnings("unchecked")
 					Collection<ITrait> traitList = (Collection<ITrait>) traits.get(embossment);
 					if(debug) {
 						String traitsStr = "";

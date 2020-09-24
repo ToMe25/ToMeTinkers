@@ -19,7 +19,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EntityLivingBase;
+//import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -37,8 +37,8 @@ import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.event.entity.living.LivingSpawnEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+//import net.minecraftforge.fml.relauncher.Side;
+//import net.minecraftforge.fml.relauncher.SideOnly;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 import net.minecraftforge.fml.common.eventhandler.Event;
 
@@ -115,7 +115,7 @@ public class TraitWitheringArmor extends AbstractArmorTrait {
 		} else if (world.isRemote) {
 			try {
 				//Class RunnableClient = Class.forName("com.rwtema.extrautils2.RunnableClient");
-				Class ClientRunnable = Class.forName("com.rwtema.extrautils2.backend.ClientRunnable");
+				Class<?> ClientRunnable = Class.forName("com.rwtema.extrautils2.backend.ClientRunnable");
 				Method run = Class.forName("com.rwtema.extrautils2.XUProxy").getDeclaredMethod("run", ClientRunnable);
 				Field proxy = Class.forName("com.rwtema.extrautils2.ExtraUtils2").getDeclaredField("proxy");
 				Object p = Proxy.newProxyInstance(ClientRunnable.getClassLoader(), new Class<?>[] {ClientRunnable}, new ParticleHandler(entity));
@@ -173,8 +173,9 @@ public class TraitWitheringArmor extends AbstractArmorTrait {
 				
 				try {
 					//ToMeTinkers.logger.info("TraitWitheringArmor: " + "Test!");
-					Class ParticleWither = Class.forName("com.rwtema.extrautils2.particles.ParticleWithering");
-					Constructor<Particle> ParticleWithering = ParticleWither.getConstructor(World.class, double.class, double.class, double.class);
+					@SuppressWarnings("unchecked")
+					Class<? extends Particle> ParticleWither = (Class<? extends Particle>) Class.forName("com.rwtema.extrautils2.particles.ParticleWithering");
+					Constructor<? extends Particle> ParticleWithering = ParticleWither.getConstructor(World.class, double.class, double.class, double.class);
 					Minecraft.getMinecraft().effectRenderer.addEffect(
 							ParticleWithering.newInstance(
 									entity.world,

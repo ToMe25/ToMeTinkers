@@ -3,8 +3,8 @@ package com.ToMe.ToMeTinkers;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.nbt.NBTTagString;
-import net.minecraft.util.datafix.DataFixer;
-import net.minecraft.util.datafix.IFixType;
+//import net.minecraft.util.datafix.DataFixer;
+//import net.minecraft.util.datafix.IFixType;
 import net.minecraft.util.datafix.IFixableData;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
@@ -23,7 +23,7 @@ public class TraitFixer implements IFixableData {
 		if(compound.getString("id").startsWith("tconstruct") || compound.getString("id").startsWith("conarm")) {
 			try {
 				NBTTagCompound itemTag = compound.getCompoundTag("tag");
-				NBTTagCompound toolTag = TagUtil.getToolTag(itemTag);
+				//NBTTagCompound toolTag = TagUtil.getToolTag(itemTag);
 				if(MaterialStats.Gold.registered) {
 					if(TinkerUtil.getMaterialsFromTagList(TagUtil.getBaseMaterialsTagList(itemTag)).contains(MaterialStats.Gold.mat)) {
 						if(!TinkerUtil.hasTrait(itemTag, "tometinkers_magical")) {

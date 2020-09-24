@@ -5,11 +5,11 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
+//import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntityDamageSource;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
-import slimeknights.tconstruct.library.utils.TinkerUtil;
+//import slimeknights.tconstruct.library.utils.TinkerUtil;
 import slimeknights.tconstruct.shared.client.ParticleEffect;
 import slimeknights.tconstruct.tools.TinkerTools;
 
@@ -24,7 +24,7 @@ public class TraitCrystallizedArmor extends AbstractArmorTrait {
 		if(entity.getEntityWorld().isRemote) {
 			return 0;
 		}
-		NBTTagCompound tag = TinkerUtil.getModifierTag(tool, identifier);
+		//NBTTagCompound tag = TinkerUtil.getModifierTag(tool, identifier);
 		float chance = 0.4f;//Reinforced 2
 		if(chance >= random.nextFloat()) {
 			newDamage -= damage;

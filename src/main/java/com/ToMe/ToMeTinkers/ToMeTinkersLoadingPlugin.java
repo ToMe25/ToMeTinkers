@@ -2,9 +2,9 @@ package com.ToMe.ToMeTinkers;
 
 import java.util.Map;
 
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fml.common.Mod.EventHandler;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+//import net.minecraftforge.common.MinecraftForge;
+//import net.minecraftforge.fml.common.Mod.EventHandler;
+//import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin;
 
 

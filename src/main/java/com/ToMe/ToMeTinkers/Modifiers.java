@@ -1,19 +1,19 @@
 package com.ToMe.ToMeTinkers;
 
-import java.lang.reflect.Field;
-import java.util.Iterator;
+//import java.lang.reflect.Field;
+//import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
-import java.util.stream.IntStream;
+//import java.util.Set;
+//import java.util.stream.IntStream;
 
 import com.ToMe.ToMeTinkers.modifiers.ModBound;
 import com.ToMe.ToMeTinkers.modifiers.ModExtraModifier;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
-import com.google.common.collect.Sets;
+//import com.google.common.collect.Sets;
 
-import net.minecraft.init.Blocks;
+//import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -21,20 +21,20 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.oredict.OreDictionary;
-import slimeknights.mantle.client.book.BookHelper;
-import slimeknights.mantle.client.book.data.BookData;
-import slimeknights.mantle.client.book.data.SectionData;
-import slimeknights.mantle.client.book.repository.BookRepository;
+//import slimeknights.mantle.client.book.BookHelper;
+//import slimeknights.mantle.client.book.data.BookData;
+//import slimeknights.mantle.client.book.data.SectionData;
+//import slimeknights.mantle.client.book.repository.BookRepository;
 import slimeknights.mantle.client.book.repository.FileRepository;
 import slimeknights.mantle.util.RecipeMatch;
-import slimeknights.mantle.util.RecipeMatch.Match;
-import slimeknights.tconstruct.library.TinkerRegistry;
+//import slimeknights.mantle.util.RecipeMatch.Match;
+//import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.book.TinkerBook;
-import slimeknights.tconstruct.library.book.content.ContentModifier;
-import slimeknights.tconstruct.library.book.sectiontransformer.ModifierSectionTransformer;
-import slimeknights.tconstruct.library.modifiers.IModifier;
+//import slimeknights.tconstruct.library.book.content.ContentModifier;
+//import slimeknights.tconstruct.library.book.sectiontransformer.ModifierSectionTransformer;
+//import slimeknights.tconstruct.library.modifiers.IModifier;
 import slimeknights.tconstruct.library.modifiers.Modifier;
-import slimeknights.tconstruct.tools.AbstractToolPulse;
+//import slimeknights.tconstruct.tools.AbstractToolPulse;
 
 public class Modifiers {
 	
@@ -125,7 +125,7 @@ public class Modifiers {
 		};
 		
 		private String id;
-		private Modifier mod;
+		//private Modifier mod;
 		
 		//private ModifierRegister(Modifier mod) {
 			//this(mod.identifier.toLowerCase(), mod);

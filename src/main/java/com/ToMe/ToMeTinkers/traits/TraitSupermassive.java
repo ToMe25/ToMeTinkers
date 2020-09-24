@@ -1,10 +1,10 @@
 package com.ToMe.ToMeTinkers.traits;
 
-import java.lang.reflect.Field;
-import java.util.Collection;
+//import java.lang.reflect.Field;
+//import java.util.Collection;
 
 import com.ToMe.ToMeTinkers.Config;
-import com.ToMe.ToMeTinkers.ToMeTinkers;
+//import com.ToMe.ToMeTinkers.ToMeTinkers;
 import com.ToMe.ToMeTinkers.Util;
 
 import net.minecraft.entity.EntityLivingBase;
@@ -15,13 +15,13 @@ import net.minecraft.nbt.NBTTagList;
 //import net.minecraft.util.ResourceLocation;
 //import net.minecraft.util.math.MathHelper;
 import slimeknights.tconstruct.library.materials.Material;
-import slimeknights.tconstruct.library.modifiers.IModifier;
+//import slimeknights.tconstruct.library.modifiers.IModifier;
 //import slimeknights.tconstruct.library.tools.ToolCore;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
-import slimeknights.tconstruct.library.traits.ITrait;
+//import slimeknights.tconstruct.library.traits.ITrait;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
-import slimeknights.tconstruct.tools.modifiers.ModExtraTrait;
+//import slimeknights.tconstruct.tools.modifiers.ModExtraTrait;
 //import slimeknights.tconstruct.tools.modifiers.ModKnockback;
 //import slimeknights.tconstruct.tools.modifiers.ModReinforced;
 
@@ -31,7 +31,8 @@ public class TraitSupermassive extends AbstractTrait {
 	
 	public TraitSupermassive() {
 		//super("supermassive", 0xffffff);
-		super("tometinkers_supermassive", 0xffffff);
+		//super("tometinkers_supermassive", 0xffffff);
+		super("avaritia_supermassive", 0xffffff);
 	}
 	
 	/*@Override

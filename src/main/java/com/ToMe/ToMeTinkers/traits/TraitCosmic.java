@@ -1,9 +1,9 @@
 package com.ToMe.ToMeTinkers.traits;
 
-import java.lang.reflect.Field;
+//import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 //import java.util.ArrayList;
-import java.util.Collection;
+//import java.util.Collection;
 //import java.util.List;
 import java.util.Random;
 
@@ -40,20 +40,20 @@ import net.minecraftforge.event.world.BlockEvent.HarvestDropsEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 //import net.minecraftforge.oredict.OreDictionary;
 //import slimeknights.tconstruct.library.events.TinkerCraftingEvent.ToolCraftingEvent;
-import slimeknights.tconstruct.library.events.TinkerCraftingEvent.ToolModifyEvent;
+//import slimeknights.tconstruct.library.events.TinkerCraftingEvent.ToolModifyEvent;
 import slimeknights.tconstruct.library.materials.Material;
-import slimeknights.tconstruct.library.modifiers.IModifier;
+//import slimeknights.tconstruct.library.modifiers.IModifier;
 //import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.modifiers.ModifierNBT;
 import slimeknights.tconstruct.library.tools.ToolCore;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 //import slimeknights.tconstruct.library.traits.AbstractTraitLeveled;
-import slimeknights.tconstruct.library.traits.ITrait;
+//import slimeknights.tconstruct.library.traits.ITrait;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.Tags;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
 //import slimeknights.tconstruct.library.utils.ToolHelper;
-import slimeknights.tconstruct.tools.modifiers.ModExtraTrait;
+//import slimeknights.tconstruct.tools.modifiers.ModExtraTrait;
 //import slimeknights.tconstruct.tools.traits.TraitWritable;
 
 public class TraitCosmic extends AbstractTrait {
@@ -383,7 +383,7 @@ public class TraitCosmic extends AbstractTrait {
 						//}
 					}
 					try {
-						Class EventHandler = Class.forName("morph.avaritia.handler.AvaritiaEventHandler");
+						Class<?> EventHandler = Class.forName("morph.avaritia.handler.AvaritiaEventHandler");
 						//for(Method m:EventHandler.getDeclaredMethods()) {
 							//String Parameters = "";
 							//for(Class<?> c:m.getParameterTypes()) {

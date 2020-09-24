@@ -1,36 +1,36 @@
 package com.ToMe.ToMeTinkers.traits;
 
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
+//import java.lang.reflect.Field;
+//import java.util.ArrayList;
+//import java.util.Arrays;
+//import java.util.Collection;
+//import java.util.List;
 import java.util.UUID;
 
 import com.ToMe.ToMeTinkers.ToMeTinkers;
 import com.ToMe.ToMeTinkers.Util;
-import com.google.common.collect.Iterables;
+//import com.google.common.collect.Iterables;
 
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagList;
+//import net.minecraft.item.ItemStack;
+//import net.minecraft.nbt.NBTTagCompound;
+//import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.relauncher.Side;
-import slimeknights.tconstruct.library.materials.Material;
-import slimeknights.tconstruct.library.modifiers.IModifier;
+//import slimeknights.tconstruct.library.materials.Material;
+//import slimeknights.tconstruct.library.modifiers.IModifier;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
-import slimeknights.tconstruct.library.traits.ITrait;
-import slimeknights.tconstruct.library.utils.TagUtil;
-import slimeknights.tconstruct.library.utils.TinkerUtil;
-import slimeknights.tconstruct.library.utils.ToolHelper;
-import slimeknights.tconstruct.tools.modifiers.ModExtraTrait;
+//import slimeknights.tconstruct.library.traits.ITrait;
+//import slimeknights.tconstruct.library.utils.TagUtil;
+//import slimeknights.tconstruct.library.utils.TinkerUtil;
+//import slimeknights.tconstruct.library.utils.ToolHelper;
+//import slimeknights.tconstruct.tools.modifiers.ModExtraTrait;
 
 public class TraitHealthy extends AbstractTrait {
 	
@@ -49,7 +49,7 @@ public class TraitHealthy extends AbstractTrait {
 			EntityPlayer player = e.player;
 			IAttributeInstance healthAtt = player.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH);
 			AttributeModifier modifier = healthAtt.getModifier(HEALTHY_UUID);
-			double oldMaxHealth = healthAtt.getAttributeValue();
+			//double oldMaxHealth = healthAtt.getAttributeValue();
 			//boolean healthy = hasHealthy(player);
 			//boolean healthy = Util.hasTrait(player, this);
 			int healthy = Util.getTraitItems(player, this);
