@@ -31,7 +31,8 @@ public class TraitSupermassive extends AbstractTrait {
 	
 	public TraitSupermassive() {
 		//super("supermassive", 0xffffff);
-		super("tometinkers_supermassive", 0xffffff);
+		//super("tometinkers_supermassive", 0xffffff);
+		super("avaritia_supermassive", 0xffffff);
 	}
 	
 	/*@Override

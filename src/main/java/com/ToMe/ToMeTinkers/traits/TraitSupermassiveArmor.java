@@ -25,7 +25,8 @@ import slimeknights.tconstruct.library.utils.TinkerUtil;
 public class TraitSupermassiveArmor extends AbstractArmorTrait {
 
 	public TraitSupermassiveArmor() {
-		super("tometinkers_supermassive", 0xffffff);
+		//super("tometinkers_supermassive", 0xffffff);
+		super("avaritia_supermassive", 0xffffff);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 	
